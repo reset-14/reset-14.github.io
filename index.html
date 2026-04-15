@@ -35,10 +35,19 @@
         "script",
         "https://connect.facebook.net/en_US/fbevents.js",
       );
-      fbq("init", "TWOJE_PIXEL_ID");
+      fbq("init", "4483695461875526");
       fbq("track", "PageView");
-      fbq("track", "ViewContent");
+      fbq("track", "ViewContent", {
+        content_name: "RESET Finansowy",
+        content_category: "ebook",
+        value: 49,
+        currency: "PLN"
+      });
     </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=4483695461875526&ev=PageView&noscript=1"/>
+    </noscript>
 
     <style>
       :root {
@@ -1150,204 +1159,63 @@
       }
 
       @media (max-width: 768px) {
-        body {
-          font-size: 15px;
-        }
-
-        .hero {
-          padding: 48px 0 40px;
-        }
-        .hero__title {
-          letter-spacing: -2px;
-        }
-        .hero__tagline {
-          font-size: 17px;
-        }
-        .cta-box {
-          max-width: 100%;
-        }
-
-        .stats__grid {
-          grid-template-columns: 1fr;
-          gap: 0;
-        }
-        .stat {
-          border-right: none;
-          border-bottom: 1px solid var(--border);
-          padding: 18px 0;
-        }
-        .stat:last-child {
-          border-bottom: none;
-        }
-
-        .proof-block__results {
-          grid-template-columns: 1fr;
-        }
-
-        .about__grid {
-          grid-template-columns: 1fr;
-          gap: 28px;
-        }
-
-        .parts {
-          grid-template-columns: 1fr;
-        }
-
-        .testi-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .guarantee__steps {
-          grid-template-columns: 1fr;
-          gap: 8px;
-        }
-        .guarantee__box {
-          padding: 24px 20px;
-        }
-
-        .final__now {
-          font-size: clamp(32px, 10vw, 48px);
-        }
-
-        .overlay {
-          align-items: flex-end;
-          padding: 0;
-        }
-        .popup {
-          border-radius: 16px 16px 0 0;
-          max-width: 100%;
-          padding: 32px 20px 28px;
-        }
+        body { font-size: 15px; }
+        .hero { padding: 48px 0 40px; }
+        .hero__title { letter-spacing: -2px; }
+        .hero__tagline { font-size: 17px; }
+        .cta-box { max-width: 100%; }
+        .stats__grid { grid-template-columns: 1fr; gap: 0; }
+        .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 18px 0; }
+        .stat:last-child { border-bottom: none; }
+        .proof-block__results { grid-template-columns: 1fr; }
+        .about__grid { grid-template-columns: 1fr; gap: 28px; }
+        .parts { grid-template-columns: 1fr; }
+        .testi-grid { grid-template-columns: 1fr; }
+        .guarantee__steps { grid-template-columns: 1fr; gap: 8px; }
+        .guarantee__box { padding: 24px 20px; }
+        .final__now { font-size: clamp(32px, 10vw, 48px); }
+        .overlay { align-items: flex-end; padding: 0; }
+        .popup { border-radius: 16px 16px 0 0; max-width: 100%; padding: 32px 20px 28px; }
       }
 
       @media (max-width: 480px) {
-        .wrap,
-        .wrap-w {
-          padding: 0 16px;
-        }
-
-        .topbar__inner {
-          padding: 0 16px;
-        }
-        .btn--sm {
-          font-size: 12px;
-          padding: 10px 14px;
-        }
-
-        .hero {
-          padding: 40px 0 36px;
-        }
-        .hero__title {
-          font-size: clamp(48px, 15vw, 72px);
-          letter-spacing: -2px;
-        }
-        .hero__tagline {
-          font-size: 16px;
-          padding-left: 14px;
-        }
-
-        .cta-box {
-          padding: 18px 16px;
-        }
-        .cta-box__now {
-          font-size: clamp(28px, 9vw, 38px);
-        }
-        .cta-box__price-row {
-          gap: 8px;
-        }
-        .cta-box__save {
-          font-size: 10px;
-        }
-
-        .btn {
-          font-size: 14px;
-          padding: 15px 20px;
-        }
-        .btn--full {
-          padding: 16px 20px;
-        }
-
-        .stat__num {
-          font-size: clamp(28px, 8vw, 40px);
-        }
-
-        .pain {
-          padding: 48px 0;
-        }
-        .pain__text {
-          font-size: 14px;
-        }
-
-        .about {
-          padding: 48px 0;
-        }
-        .about__quote {
-          font-size: 17px;
-        }
-
-        .contents {
-          padding: 48px 0;
-        }
-        .part {
-          padding: 22px 18px;
-        }
-
-        .plan {
-          padding: 48px 0;
-        }
-        .day-row {
-          grid-template-columns: 70px 1fr;
-        }
-        .day-row__num {
-          font-size: 17px;
-        }
-
-        .social {
-          padding: 48px 0;
-        }
-
-        .guarantee {
-          padding: 48px 0;
-        }
-
-        .final {
-          padding: 56px 0;
-        }
-        .final__now {
-          font-size: 40px;
-        }
-        .final__old {
-          font-size: 18px;
-        }
-        .final__badges {
-          font-size: 9px;
-        }
-
-        .faq {
-          padding: 40px 0;
-        }
-        .faq__q {
-          font-size: 14px;
-          padding: 16px;
-        }
-
-        .footer__in {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 6px;
-        }
+        .wrap, .wrap-w { padding: 0 16px; }
+        .topbar__inner { padding: 0 16px; }
+        .btn--sm { font-size: 12px; padding: 10px 14px; }
+        .hero { padding: 40px 0 36px; }
+        .hero__title { font-size: clamp(48px, 15vw, 72px); letter-spacing: -2px; }
+        .hero__tagline { font-size: 16px; padding-left: 14px; }
+        .cta-box { padding: 18px 16px; }
+        .cta-box__now { font-size: clamp(28px, 9vw, 38px); }
+        .cta-box__price-row { gap: 8px; }
+        .cta-box__save { font-size: 10px; }
+        .btn { font-size: 14px; padding: 15px 20px; }
+        .btn--full { padding: 16px 20px; }
+        .stat__num { font-size: clamp(28px, 8vw, 40px); }
+        .pain { padding: 48px 0; }
+        .pain__text { font-size: 14px; }
+        .about { padding: 48px 0; }
+        .about__quote { font-size: 17px; }
+        .contents { padding: 48px 0; }
+        .part { padding: 22px 18px; }
+        .plan { padding: 48px 0; }
+        .day-row { grid-template-columns: 70px 1fr; }
+        .day-row__num { font-size: 17px; }
+        .social { padding: 48px 0; }
+        .guarantee { padding: 48px 0; }
+        .final { padding: 56px 0; }
+        .final__now { font-size: 40px; }
+        .final__old { font-size: 18px; }
+        .final__badges { font-size: 9px; }
+        .faq { padding: 40px 0; }
+        .faq__q { font-size: 14px; padding: 16px; }
+        .footer__in { flex-direction: column; align-items: flex-start; gap: 6px; }
       }
 
       @media (max-width: 360px) {
-        .hero__title {
-          font-size: 44px;
-        }
-        .stitle {
-          font-size: 22px;
-        }
-        .cta-box__now {
-          font-size: 28px;
-        }
+        .hero__title { font-size: 44px; }
+        .stitle { font-size: 22px; }
+        .cta-box__now { font-size: 28px; }
       }
     </style>
   </head>
@@ -1363,12 +1231,8 @@
       <div class="wrap">
         <p class="hero__eyebrow fu">Ebook · Finanse osobiste · Polska 2026</p>
         <h1 class="hero__title fu2">RE<span>SE</span>T</h1>
-        <p class="hero__subtitle fu2">
-          14-dniowy plan wyjścia z finansowej pułapki
-        </p>
-        <p class="hero__tagline fu3">
-          Zarabiasz nieźle.<br />I jakoś nic nie zostaje.
-        </p>
+        <p class="hero__subtitle fu2">14-dniowy plan wyjścia z finansowej pułapki</p>
+        <p class="hero__tagline fu3">Zarabiasz nieźle.<br />I jakoś nic nie zostaje.</p>
 
         <div class="cta-box fu4" id="kup">
           <div class="cta-box__price-row">
@@ -1380,19 +1244,11 @@
             <span class="urgency__dot"></span>
             Zostało tylko 11 kopii w cenie promocyjnej
           </div>
-          <a
-            href="#"
-            onclick="
-              openPopup();
-              return false;
-            "
-            class="btn btn--full btn--pulse">
+          <a href="#" onclick="openPopup(); return false;" class="btn btn--full btn--pulse">
             Pobierz RESET — 49 PLN →
           </a>
           <p class="cta-box__note">📩 PDF na maila natychmiast po zakupie</p>
-          <div class="cta-box__guarantee">
-            14 dni gwarancji zwrotu — bez pytań
-          </div>
+          <div class="cta-box__guarantee">14 dni gwarancji zwrotu — bez pytań</div>
         </div>
       </div>
     </section>
@@ -1402,21 +1258,15 @@
         <div class="stats__grid">
           <div class="stat reveal">
             <span class="stat__num">788 mld</span>
-            <span class="stat__label"
-              >Zadłużenie polskich<br />gospodarstw domowych</span
-            >
+            <span class="stat__label">Zadłużenie polskich<br />gospodarstw domowych</span>
           </div>
           <div class="stat reveal">
             <span class="stat__num">1 na 3</span>
-            <span class="stat__label"
-              >Polaków nie przeżyłby<br />miesiąca bez wypłaty</span
-            >
+            <span class="stat__label">Polaków nie przeżyłby<br />miesiąca bez wypłaty</span>
           </div>
           <div class="stat reveal">
             <span class="stat__num">32%</span>
-            <span class="stat__label"
-              >Podatku oddajesz<br />powyżej 10 000 zł/mc</span
-            >
+            <span class="stat__label">Podatku oddajesz<br />powyżej 10 000 zł/mc</span>
           </div>
         </div>
       </div>
@@ -1426,21 +1276,14 @@
       <div class="wrap">
         <div class="proof-block reveal">
           <p class="proof-block__quote">
-            "Zarabiam ponad 11 000 netto. Po audycie z Dnia 2 okazało się, że
-            marnuję 1 600 zł miesięcznie na rzeczy, których nawet nie używam. W
-            jeden wieczór zamknąłem 4 wycieki. Żałuję, że nie miałem tego 3 lata
-            wcześniej."
+            "Zarabiam ponad 11 000 netto. Po audycie z Dnia 2 okazało się, że marnuję 1 600 zł miesięcznie na rzeczy, których nawet nie używam. W jeden wieczór zamknąłem 4 wycieki. Żałuję, że nie miałem tego 3 lata wcześniej."
           </p>
-          <div class="proof-block__author">
-            Mateusz K. — senior developer, Wrocław · zweryfikowany zakup
-          </div>
+          <div class="proof-block__author">Mateusz K. — senior developer, Wrocław · zweryfikowany zakup</div>
           <div class="proof-block__results">
             <div class="proof-result">Audyt gotowy po 2 godzinach</div>
             <div class="proof-result">1 600 zł/mc zatrzymanych od razu</div>
             <div class="proof-result">Poduszka finansowa po 6 tygodniach</div>
-            <div class="proof-result">
-              Wreszcie wiem gdzie idą moje pieniądze
-            </div>
+            <div class="proof-result">Wreszcie wiem gdzie idą moje pieniądze</div>
           </div>
         </div>
       </div>
@@ -1449,47 +1292,27 @@
     <section class="pain">
       <div class="wrap">
         <p class="label">Czy to o Tobie?</p>
-        <h2 class="stitle">
-          Zarabiasz nieźle.<br />Ale jakoś nic nie zostaje.
-        </h2>
+        <h2 class="stitle">Zarabiasz nieźle.<br />Ale jakoś nic nie zostaje.</h2>
         <div class="pain__list">
           <div class="pain__item reveal">
             <span class="pain__x">✕</span>
-            <p class="pain__text">
-              <strong
-                >Mieszkanie w kredycie. Auto w leasingu. Telefon na
-                raty.</strong
-              >
-              Masz wszystko — tylko to wszystko nie jest Twoje.
-            </p>
+            <p class="pain__text"><strong>Mieszkanie w kredycie. Auto w leasingu. Telefon na raty.</strong> Masz wszystko — tylko to wszystko nie jest Twoje.</p>
           </div>
           <div class="pain__item reveal">
             <span class="pain__x">✕</span>
-            <p class="pain__text">
-              <strong>Gdybyś stracił pracę dziś</strong> — za 3 miesiące nie
-              miałbyś z czego spłacić kredytu. To nie jest normalne.
-            </p>
+            <p class="pain__text"><strong>Gdybyś stracił pracę dziś</strong> — za 3 miesiące nie miałbyś z czego spłacić kredytu. To nie jest normalne.</p>
           </div>
           <div class="pain__item reveal">
             <span class="pain__x">✕</span>
-            <p class="pain__text">
-              <strong>Zarabiasz więcej niż rok temu.</strong> Ale masz mniej.
-              Inflacja i wyższy próg podatkowy wyżerają każdą podwyżkę.
-            </p>
+            <p class="pain__text"><strong>Zarabiasz więcej niż rok temu.</strong> Ale masz mniej. Inflacja i wyższy próg podatkowy wyżerają każdą podwyżkę.</p>
           </div>
           <div class="pain__item reveal">
             <span class="pain__x">✕</span>
-            <p class="pain__text">
-              <strong>Wiesz, że powinieneś oszczędzać.</strong> Ale każdy
-              miesiąc kończy się na zero — albo na minusie.
-            </p>
+            <p class="pain__text"><strong>Wiesz, że powinieneś oszczędzać.</strong> Ale każdy miesiąc kończy się na zero — albo na minusie.</p>
           </div>
           <div class="pain__item reveal">
             <span class="pain__x">✕</span>
-            <p class="pain__text">
-              <strong>Jesteś zmęczony</strong> pracowaniem coraz ciężej, żeby
-              stać w miejscu. Coś jest nie tak, ale nie wiesz co zmienić.
-            </p>
+            <p class="pain__text"><strong>Jesteś zmęczony</strong> pracowaniem coraz ciężej, żeby stać w miejscu. Coś jest nie tak, ale nie wiesz co zmienić.</p>
           </div>
         </div>
       </div>
@@ -1501,22 +1324,12 @@
         <h2 class="stitle">To nie jest teoria<br />o pasywnym dochodzie.</h2>
         <div class="about__grid">
           <blockquote class="about__quote reveal">
-            "To nie jest Twoja wina. Ale wyjście z tego jest już Twoją
-            odpowiedzialnością."
+            "To nie jest Twoja wina. Ale wyjście z tego jest już Twoją odpowiedzialnością."
           </blockquote>
           <div class="about__body reveal">
-            <p>
-              System podatkowy karze za ambicję. Banki żyją z Twoich rat.
-              Inflacja pożera każdą podwyżkę.
-            </p>
-            <p>
-              Tego <strong>nie zmienisz.</strong> Ale możesz zmienić to, co
-              dzieje się z Twoimi pieniędzmi każdego miesiąca.
-            </p>
-            <p>
-              <strong>RESET</strong> to konkretny 14-dniowy plan — dla kogoś kto
-              zarabia przyzwoicie, ale utknął w pułapce bez wyjścia.
-            </p>
+            <p>System podatkowy karze za ambicję. Banki żyją z Twoich rat. Inflacja pożera każdą podwyżkę.</p>
+            <p>Tego <strong>nie zmienisz.</strong> Ale możesz zmienić to, co dzieje się z Twoimi pieniędzmi każdego miesiąca.</p>
+            <p><strong>RESET</strong> to konkretny 14-dniowy plan — dla kogoś kto zarabia przyzwoicie, ale utknął w pułapce bez wyjścia.</p>
           </div>
         </div>
       </div>
@@ -1573,10 +1386,7 @@
             </div>
             <div class="day-row__body">
               <h4 class="day-row__title">Mapujesz wszystkie wydatki</h4>
-              <p class="day-row__desc">
-                Stałe zobowiązania, wycieki zmienne, bilans netto. Większość
-                ludzi jest zaskoczona tym co zobaczy.
-              </p>
+              <p class="day-row__desc">Stałe zobowiązania, wycieki zmienne, bilans netto. Większość ludzi jest zaskoczona tym co zobaczy.</p>
             </div>
           </div>
           <div class="day-row reveal">
@@ -1586,10 +1396,7 @@
             </div>
             <div class="day-row__body">
               <h4 class="day-row__title">Zamykasz wycieki bez bólu</h4>
-              <p class="day-row__desc">
-                Martwe subskrypcje, przepłacane rachunki, limity na największe
-                kategorie. Bez drastycznych wyrzeczeń.
-              </p>
+              <p class="day-row__desc">Martwe subskrypcje, przepłacane rachunki, limity na największe kategorie. Bez drastycznych wyrzeczeń.</p>
             </div>
           </div>
           <div class="day-row reveal">
@@ -1599,10 +1406,7 @@
             </div>
             <div class="day-row__body">
               <h4 class="day-row__title">Budujesz fundament bezpieczeństwa</h4>
-              <p class="day-row__desc">
-                Gdzie trzymać kasę, jak odkładać automatycznie, strategia spłaty
-                długów. Cel: 1 miesiąc spokoju.
-              </p>
+              <p class="day-row__desc">Gdzie trzymać kasę, jak odkładać automatycznie, strategia spłaty długów. Cel: 1 miesiąc spokoju.</p>
             </div>
           </div>
           <div class="day-row reveal">
@@ -1612,10 +1416,7 @@
             </div>
             <div class="day-row__body">
               <h4 class="day-row__title">Automatyzujesz dobre decyzje</h4>
-              <p class="day-row__desc">
-                Przelewy cykliczne, budżet miesięczny, rytm finansowy który
-                działa bez Twojej uwagi co miesiąc.
-              </p>
+              <p class="day-row__desc">Przelewy cykliczne, budżet miesięczny, rytm finansowy który działa bez Twojej uwagi co miesiąc.</p>
             </div>
           </div>
         </div>
@@ -1628,33 +1429,19 @@
         <h2 class="stitle">Wreszcie ktoś powiedział wprost.</h2>
         <div class="testi-grid">
           <div class="testi reveal">
-            <p class="testi__text">
-              "Wiedziałem że coś jest nie tak, ale nie umiałem tego nazwać. Po
-              audycie okazało się, że marnuję 1 400 zł miesięcznie na rzeczy,
-              których w ogóle nie używam."
-            </p>
+            <p class="testi__text">"Wiedziałem że coś jest nie tak, ale nie umiałem tego nazwać. Po audycie okazało się, że marnuję 1 400 zł miesięcznie na rzeczy, których w ogóle nie używam."</p>
             <span class="testi__author">Mateusz K. — developer, Wrocław</span>
             <div class="testi__result">↑ 1 400 zł/mc z powrotem w kieszeni</div>
           </div>
           <div class="testi reveal">
-            <p class="testi__text">
-              "Zarabiam 12k netto i zawsze mi nie starcza. Po 6 tygodniach mam
-              pierwszą realną poduszkę finansową od 5 lat. Dosłownie od
-              pierwszego do pierwszego — przez 5 lat."
-            </p>
+            <p class="testi__text">"Zarabiam 12k netto i zawsze mi nie starcza. Po 6 tygodniach mam pierwszą realną poduszkę finansową od 5 lat. Dosłownie od pierwszego do pierwszego — przez 5 lat."</p>
             <span class="testi__author">Agnieszka P. — manager, Warszawa</span>
             <div class="testi__result">↑ Pierwsza poduszka po 6 tygodniach</div>
           </div>
           <div class="testi reveal">
-            <p class="testi__text">
-              "Żaden kurs za 2 000 zł nie dał mi tyle gotowych kroków. Zrobiłem
-              audyt w piątek wieczór i w sobotę anulowałem 6 subskrypcji, o
-              których zapomniałem."
-            </p>
+            <p class="testi__text">"Żaden kurs za 2 000 zł nie dał mi tyle gotowych kroków. Zrobiłem audyt w piątek wieczór i w sobotę anulowałem 6 subskrypcji, o których zapomniałem."</p>
             <span class="testi__author">Piotr R. — inżynier, Kraków</span>
-            <div class="testi__result">
-              ↑ 6 subskrypcji anulowanych w weekend
-            </div>
+            <div class="testi__result">↑ 6 subskrypcji anulowanych w weekend</div>
           </div>
         </div>
       </div>
@@ -1665,15 +1452,11 @@
         <p class="label">Gwarancja</p>
         <h2 class="stitle">Ryzyko jest<br />po mojej stronie.</h2>
         <div class="guarantee__box reveal">
-          <h3 class="guarantee__title">
-            14-dniowa bezwarunkowa gwarancja zwrotu
-          </h3>
+          <h3 class="guarantee__title">14-dniowa bezwarunkowa gwarancja zwrotu</h3>
           <div class="guarantee__steps">
             <div class="guarantee__step">
               <span class="guarantee__step-n">1</span>
-              <div class="guarantee__step-t">
-                Pobierz i przeczytaj Część 1 i 2
-              </div>
+              <div class="guarantee__step-t">Pobierz i przeczytaj Część 1 i 2</div>
             </div>
             <div class="guarantee__step">
               <span class="guarantee__step-n">2</span>
@@ -1685,13 +1468,9 @@
             </div>
           </div>
           <p class="guarantee__body">
-            Jeśli uznasz, że RESET nie jest wart 49 złotych — napisz maila.
-            Zwracam całą kwotę bez pytań, bez formularzy, bez tłumaczenia się.
-            Chcę żebyś czuł się w 100% bezpiecznie testując ten plan.
+            Jeśli uznasz, że RESET nie jest wart 49 złotych — napisz maila. Zwracam całą kwotę bez pytań, bez formularzy, bez tłumaczenia się. Chcę żebyś czuł się w 100% bezpiecznie testując ten plan.
           </p>
-          <div class="guarantee__footer">
-            Gwarancja zwrotu przez 14 dni od zakupu
-          </div>
+          <div class="guarantee__footer">Gwarancja zwrotu przez 14 dni od zakupu</div>
         </div>
       </div>
     </section>
@@ -1699,9 +1478,7 @@
     <section class="final">
       <div class="wrap">
         <h2 class="final__title">Gotowy<br />na reset?</h2>
-        <p class="final__sub">
-          PDF. Pobierasz natychmiast. Zaczynasz dziś. 14 dni.
-        </p>
+        <p class="final__sub">PDF. Pobierasz natychmiast. Zaczynasz dziś. 14 dni.</p>
         <div class="final__price-row">
           <span class="final__now">49 PLN</span>
           <span class="final__old">79 PLN</span>
@@ -1710,19 +1487,11 @@
           <span class="urgency__dot"></span>
           Zostało 11 kopii w cenie promocyjnej
         </div>
-        <a
-          href="#"
-          onclick="
-            openPopup();
-            return false;
-          "
-          class="btn btn--full btn--pulse"
-          style="max-width: 420px; margin: 0 auto; display: flex">
+        <a href="#" onclick="openPopup(); return false;" class="btn btn--full btn--pulse" style="max-width: 420px; margin: 0 auto; display: flex;">
           Pobierz RESET — 49 PLN →
         </a>
         <div class="final__badges" style="margin-top: 14px">
-          🔒 Bezpieczna płatność &nbsp;·&nbsp; PDF na maila od razu
-          &nbsp;·&nbsp; 14 dni gwarancji
+          🔒 Bezpieczna płatność &nbsp;·&nbsp; PDF na maila od razu &nbsp;·&nbsp; 14 dni gwarancji
         </div>
       </div>
     </section>
@@ -1733,67 +1502,24 @@
         <h2 class="stitle">Masz pytania.</h2>
         <div class="faq__list">
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">
-              Dla kogo jest ten ebook?
-              <span class="faq__plus">+</span>
-            </button>
-            <div class="faq__a">
-              <div class="faq__a-in">
-                Dla kogoś kto zarabia między 5 a 15k netto, ma kredyt lub
-                leasing, i czuje że mimo przyzwoitych zarobków nie buduje
-                żadnego majątku. Nie musisz mieć żadnej wiedzy finansowej —
-                wszystko wytłumaczone od podstaw.
-              </div>
-            </div>
+            <button class="faq__q" onclick="toggleFaq(this)">Dla kogo jest ten ebook?<span class="faq__plus">+</span></button>
+            <div class="faq__a"><div class="faq__a-in">Dla kogoś kto zarabia między 5 a 15k netto, ma kredyt lub leasing, i czuje że mimo przyzwoitych zarobków nie buduje żadnego majątku. Nie musisz mieć żadnej wiedzy finansowej — wszystko wytłumaczone od podstaw.</div></div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">
-              Czy to kolejna książka o pasywnym dochodzie?
-              <span class="faq__plus">+</span>
-            </button>
-            <div class="faq__a">
-              <div class="faq__a-in">
-                Nie. Zero kryptowalut, dropshippingu ani "wolności finansowej".
-                Konkretny plan na 2 tygodnie, zbudowany pod polskie realia
-                podatkowe i koszty życia w 2026 roku.
-              </div>
-            </div>
+            <button class="faq__q" onclick="toggleFaq(this)">Czy to kolejna książka o pasywnym dochodzie?<span class="faq__plus">+</span></button>
+            <div class="faq__a"><div class="faq__a-in">Nie. Zero kryptowalut, dropshippingu ani "wolności finansowej". Konkretny plan na 2 tygodnie, zbudowany pod polskie realia podatkowe i koszty życia w 2026 roku.</div></div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">
-              Ile czasu zajmuje plan?
-              <span class="faq__plus">+</span>
-            </button>
-            <div class="faq__a">
-              <div class="faq__a-in">
-                Ebook przeczytasz w 2–3 godziny. Każde zadanie z planu zajmuje
-                20–40 minut dziennie. Wystarczy jeden wieczór po pracy.
-              </div>
-            </div>
+            <button class="faq__q" onclick="toggleFaq(this)">Ile czasu zajmuje plan?<span class="faq__plus">+</span></button>
+            <div class="faq__a"><div class="faq__a-in">Ebook przeczytasz w 2–3 godziny. Każde zadanie z planu zajmuje 20–40 minut dziennie. Wystarczy jeden wieczór po pracy.</div></div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">
-              Co jeśli będę niezadowolony?
-              <span class="faq__plus">+</span>
-            </button>
-            <div class="faq__a">
-              <div class="faq__a-in">
-                14 dni na zwrot bez pytań. Piszesz maila — oddaję kasę. Bez
-                formularzy, bez tłumaczenia się.
-              </div>
-            </div>
+            <button class="faq__q" onclick="toggleFaq(this)">Co jeśli będę niezadowolony?<span class="faq__plus">+</span></button>
+            <div class="faq__a"><div class="faq__a-in">14 dni na zwrot bez pytań. Piszesz maila — oddaję kasę. Bez formularzy, bez tłumaczenia się.</div></div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">
-              Jak dostanę ebooka po zakupie?
-              <span class="faq__plus">+</span>
-            </button>
-            <div class="faq__a">
-              <div class="faq__a-in">
-                Natychmiast po płatności dostajesz maila z linkiem do pobrania
-                PDF. Dostęp w ciągu 2 minut — bez czekania.
-              </div>
-            </div>
+            <button class="faq__q" onclick="toggleFaq(this)">Jak dostanę ebooka po zakupie?<span class="faq__plus">+</span></button>
+            <div class="faq__a"><div class="faq__a-in">Natychmiast po płatności dostajesz maila z linkiem do pobrania PDF. Dostęp w ciągu 2 minut — bez czekania.</div></div>
           </div>
         </div>
       </div>
@@ -1802,68 +1528,28 @@
     <footer>
       <div class="wrap-w">
         <div class="footer__in">
-          <span class="footer__copy"
-            >© 2026 RESET · Wszelkie prawa zastrzeżone</span
-          >
+          <span class="footer__copy">© 2026 RESET · Wszelkie prawa zastrzeżone</span>
           <span class="footer__copy">reset14@int.pl</span>
         </div>
       </div>
     </footer>
 
-    <div
-      class="overlay"
-      id="overlay"
-      onclick="if (event.target === this) closePopup();">
-      <div
-        class="popup"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="popup-title">
-        <button
-          class="popup__close"
-          onclick="closePopup()"
-          aria-label="Zamknij">
-          ✕
-        </button>
-
+    <div class="overlay" id="overlay" onclick="if (event.target === this) closePopup();">
+      <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <button class="popup__close" onclick="closePopup()" aria-label="Zamknij">✕</button>
         <span class="popup__tag">Świetna decyzja.</span>
-        <h3 class="popup__title" id="popup-title">
-          Chcesz wdrożyć plan jeszcze szybciej?
-        </h3>
+        <h3 class="popup__title" id="popup-title">Chcesz wdrożyć plan jeszcze szybciej?</h3>
         <div class="popup__rule"></div>
-
-        <p class="popup__sub">
-          Większość ludzi przeczyta ebooka, ale zapomni go wdrożyć. Dlatego
-          przygotowałem gotowy
-          <strong style="color: var(--text)">arkusz Excel do budżetu</strong> —
-          wypełniasz dane, on liczy sam.
-        </p>
-
+        <p class="popup__sub">Większość ludzi przeczyta ebooka, ale zapomni go wdrożyć. Dlatego przygotowałem gotowy <strong style="color: var(--text)">arkusz Excel do budżetu</strong> — wypełniasz dane, on liczy sam.</p>
         <div class="popup__benefits">
-          <div class="popup__benefit">
-            Tabela audytu z Dnia 1 i 2 — gotowa do wypełnienia
-          </div>
-          <div class="popup__benefit">
-            Automatyczny kalkulator poduszki finansowej
-          </div>
-          <div class="popup__benefit">
-            Tracker budżetu miesięcznego z wykresami
-          </div>
-          <div class="popup__benefit">
-            Plan spłaty długów — metoda lawinowa i śnieżna kula
-          </div>
+          <div class="popup__benefit">Tabela audytu z Dnia 1 i 2 — gotowa do wypełnienia</div>
+          <div class="popup__benefit">Automatyczny kalkulator poduszki finansowej</div>
+          <div class="popup__benefit">Tracker budżetu miesięcznego z wykresami</div>
+          <div class="popup__benefit">Plan spłaty długów — metoda lawinowa i śnieżna kula</div>
         </div>
-
-        <p class="popup__price">
-          Normalnie 29 PLN — dziś tylko 19 PLN jako uzupełnienie do RESET.
-        </p>
-
-        <button class="popup__yes" onclick="acceptUpsell()">
-          TAK — DODAJ ARKUSZ ZA 19 PLN
-        </button>
-        <button class="popup__no" onclick="declineUpsell()">
-          Nie, sam sobie poradzę z Excelem
-        </button>
+        <p class="popup__price">Normalnie 29 PLN — dziś tylko 19 PLN jako uzupełnienie do RESET.</p>
+        <button class="popup__yes" onclick="acceptUpsell()">TAK — DODAJ ARKUSZ ZA 19 PLN</button>
+        <button class="popup__no" onclick="declineUpsell()">Nie, sam sobie poradzę z Excelem</button>
       </div>
     </div>
 
@@ -1874,7 +1560,10 @@
       function openPopup() {
         document.getElementById("overlay").classList.add("open");
         document.body.style.overflow = "hidden";
-        if (typeof fbq !== "undefined") fbq("track", "InitiateCheckout");
+        if (typeof fbq !== "undefined") fbq("track", "InitiateCheckout", {
+          value: 49,
+          currency: "PLN"
+        });
       }
       function closePopup() {
         document.getElementById("overlay").classList.remove("open");
@@ -1882,14 +1571,12 @@
       }
       function acceptUpsell() {
         closePopup();
-        if (typeof fbq !== "undefined")
-          fbq("track", "AddToCart", { value: 68, currency: "PLN" });
+        if (typeof fbq !== "undefined") fbq("track", "AddToCart", { value: 68, currency: "PLN" });
         window.location.href = URL_BUNDLE;
       }
       function declineUpsell() {
         closePopup();
-        if (typeof fbq !== "undefined")
-          fbq("track", "AddToCart", { value: 49, currency: "PLN" });
+        if (typeof fbq !== "undefined") fbq("track", "AddToCart", { value: 49, currency: "PLN" });
         window.location.href = URL_EBOOK;
       }
 
@@ -1907,17 +1594,12 @@
         }
       }
 
-      var io = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) e.target.classList.add("in");
-          });
-        },
-        { threshold: 0.08, rootMargin: "0px 0px -32px 0px" },
-      );
-      document.querySelectorAll(".reveal").forEach(function (el) {
-        io.observe(el);
-      });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) e.target.classList.add("in");
+        });
+      }, { threshold: 0.08, rootMargin: "0px 0px -32px 0px" });
+      document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
 
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closePopup();
