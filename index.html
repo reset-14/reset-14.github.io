@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RESET — 14-dniowy plan wyjścia z finansowej pułapki</title>
+    <meta
+      name="description"
+      content="14-dniowy plan finansowy dla Polaków, którzy zarabiają nieźle, ale nic im nie zostaje. Konkretne kroki, polskie realia 2026, PDF za 49 zł, 14 dni gwarancji zwrotu." />
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta
+      property="og:title"
+      content="RESET — 14-dniowy plan wyjścia z finansowej pułapki" />
+    <meta
+      property="og:description"
+      content="Zarabiasz nieźle. I jakoś nic nie zostaje. Konkretny 14-dniowy plan dla polskich realiów 2026." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="RESET" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="RESET — 14-dniowy plan wyjścia z finansowej pułapki" />
+    <meta
+      name="twitter:description"
+      content="Zarabiasz nieźle. I jakoś nic nie zostaje. 14-dniowy plan, 49 zł." />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,12 +61,15 @@
         content_name: "RESET Finansowy",
         content_category: "ebook",
         value: 49,
-        currency: "PLN"
+        currency: "PLN",
       });
     </script>
     <noscript>
-      <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=4483695461875526&ev=PageView&noscript=1"/>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=4483695461875526&ev=PageView&noscript=1" />
     </noscript>
 
     <style>
@@ -76,6 +99,12 @@
         --radius-lg: 4px;
         --shadow-btn: 0 8px 28px rgba(255, 61, 26, 0.35);
         --shadow-elev: 0 24px 60px rgba(0, 0, 0, 0.5);
+
+        /* Fluid spacing — skaluje się płynnie między mobile a desktop */
+        --section-y: clamp(48px, 7vw, 72px);
+        --section-y-lg: clamp(56px, 9vw, 96px);
+        --wrap-px: clamp(18px, 4vw, 32px);
+        --gap-grid: clamp(2px, 0.4vw, 4px);
       }
 
       *,
@@ -112,7 +141,8 @@
         mix-blend-mode: overlay;
       }
 
-      img, svg {
+      img,
+      svg {
         max-width: 100%;
         display: block;
       }
@@ -125,19 +155,22 @@
       .wrap {
         max-width: 860px;
         margin: 0 auto;
-        padding: 0 24px;
+        padding: 0 var(--wrap-px);
         position: relative;
         z-index: 1;
       }
       .wrap-w {
         max-width: 1100px;
         margin: 0 auto;
-        padding: 0 24px;
+        padding: 0 var(--wrap-px);
         position: relative;
         z-index: 1;
       }
 
-      h1, h2, h3, h4 {
+      h1,
+      h2,
+      h3,
+      h4 {
         font-family: var(--f-display);
         font-weight: 800;
         line-height: 1.05;
@@ -199,7 +232,10 @@
         gap: 10px;
         padding: 18px 32px;
         border-radius: var(--radius);
-        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        transition:
+          background 0.2s,
+          transform 0.15s,
+          box-shadow 0.2s;
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
         min-height: 54px;
@@ -213,7 +249,12 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
         transition: left 0.6s ease;
       }
       .btn:hover::after {
@@ -241,23 +282,40 @@
       }
 
       @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(255, 61, 26, 0.5); }
-        70% { box-shadow: 0 0 0 18px rgba(255, 61, 26, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(255, 61, 26, 0); }
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 61, 26, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 18px rgba(255, 61, 26, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 61, 26, 0);
+        }
       }
       .btn--pulse {
         animation: pulse 2.8s 1.5s infinite;
       }
 
       .topbar {
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid transparent;
         padding: 14px 0;
-        position: sticky;
+        position: fixed;
         top: 0;
-        background: rgba(11, 11, 11, 0.92);
+        left: 0;
+        right: 0;
+        background: transparent;
+        transition:
+          background 0.3s,
+          border-color 0.3s,
+          padding 0.3s;
+        z-index: 200;
+      }
+      .topbar.scrolled {
+        background: rgba(11, 11, 11, 0.94);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
-        z-index: 200;
+        border-bottom-color: var(--border);
+        padding: 10px 0;
       }
       .topbar__inner {
         display: flex;
@@ -289,9 +347,101 @@
         margin-bottom: 3px;
       }
 
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: 0%;
+        background: var(--accent);
+        z-index: 9998;
+        transition: width 0.05s linear;
+        pointer-events: none;
+      }
+
+      .sticky-cta {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 400;
+        padding: 12px 18px;
+        background: rgba(11, 11, 11, 0.96);
+        border-top: 1px solid var(--border);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .sticky-cta.visible {
+        transform: translateY(0);
+      }
+      @media (max-width: 768px) {
+        .sticky-cta {
+          display: block;
+        }
+        body.sticky-active {
+          padding-bottom: 84px;
+        }
+      }
+      .sticky-cta__inner {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .sticky-cta__price {
+        font-family: var(--f-display);
+        font-weight: 800;
+        font-size: 20px;
+        color: var(--text);
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .sticky-cta__price small {
+        font-size: 13px;
+        font-weight: 400;
+        text-decoration: line-through;
+        color: var(--muted);
+        margin-left: 4px;
+      }
+
       .hero {
-        padding: 72px 0 56px;
         position: relative;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        padding: 120px 0 80px;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: linear-gradient(to bottom, transparent, var(--bg));
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .hero__bg-svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.38;
+        filter: blur(0.4px);
+      }
+
+      .hero .wrap {
+        position: relative;
+        z-index: 3;
       }
 
       .hero__eyebrow {
@@ -300,7 +450,7 @@
         letter-spacing: 0.2em;
         text-transform: uppercase;
         color: var(--accent);
-        margin-bottom: 28px;
+        margin-bottom: 24px;
         display: flex;
         align-items: center;
         gap: 12px;
@@ -316,10 +466,10 @@
       .hero__title {
         font-family: var(--f-display);
         font-weight: 800;
-        font-size: clamp(64px, 16vw, 120px);
+        font-size: clamp(72px, 18vw, 140px);
         line-height: 0.88;
         letter-spacing: -0.05em;
-        margin-bottom: 14px;
+        margin-bottom: 20px;
         position: relative;
         z-index: 2;
       }
@@ -330,67 +480,285 @@
       .hero__subtitle {
         font-family: var(--f-display);
         font-weight: 400;
-        font-size: clamp(13px, 2.5vw, 17px);
+        font-size: clamp(13px, 2.2vw, 16px);
         color: var(--muted);
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        margin-bottom: 36px;
+        margin-bottom: 32px;
       }
 
       .hero__tagline {
         font-family: var(--f-body);
         font-style: italic;
-        font-size: clamp(19px, 3.2vw, 26px);
+        font-size: clamp(20px, 3vw, 28px);
         font-weight: 500;
         color: var(--text);
         line-height: 1.4;
-        max-width: 580px;
+        max-width: 560px;
         margin-bottom: 40px;
         padding-left: 22px;
         border-left: 3px solid var(--accent);
       }
 
-      .anim-zone {
-        position: relative;
-        background: var(--bg-2);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        overflow: hidden;
+      .rs1-bg {
+        fill: transparent;
       }
-      .anim-zone--hero {
-        margin: 0 0 40px;
-        height: 220px;
-        background: linear-gradient(180deg, #141414 0%, #0B0B0B 100%);
+      .rs1-grid {
+        stroke: #2e2e2e;
+        stroke-width: 0.5;
+        fill: none;
       }
-
-      .rs1-bg { fill: transparent; }
-      .rs1-grid { stroke: #2E2E2E; stroke-width: 0.5; fill: none; }
-      .rs1-sep { stroke: #2E2E2E; stroke-width: 0.75; stroke-dasharray: 3 5; fill: none; opacity: 0.5; }
-      .rs1-sep-label { font-family: var(--f-mono); font-size: 8px; fill: #7A7670; letter-spacing: 0.18em; text-transform: uppercase; }
-      .rs1-zone-label { font-family: var(--f-mono); font-size: 8px; fill: #7A7670; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.55; }
-      .rs1-tick { stroke: #7A7670; stroke-width: 0.75; opacity: 0.35; }
-      .rs1-day-num { font-family: var(--f-mono); font-size: 8px; fill: #7A7670; letter-spacing: 0.12em; text-anchor: middle; opacity: 0.45; }
-      .rs1-ghost { fill: none; stroke: #FF3D1A; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; opacity: 0.07; }
-      .rs1-glow { fill: none; stroke: #FF3D1A; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1900; stroke-dashoffset: 1900; opacity: 0.22; animation: rs1-draw 6s cubic-bezier(0.42, 0, 0.28, 1) infinite; }
-      .rs1-line { fill: none; stroke: #FF3D1A; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1900; stroke-dashoffset: 1900; animation: rs1-draw 6s cubic-bezier(0.42, 0, 0.28, 1) infinite; }
-      @keyframes rs1-draw { 0% { stroke-dashoffset: 1900; opacity: 1; } 67% { stroke-dashoffset: 0; opacity: 1; } 82% { stroke-dashoffset: 0; opacity: 1; } 94% { stroke-dashoffset: 0; opacity: 0; } 100% { stroke-dashoffset: 1900; opacity: 0; } }
-      .rs1-dot-halo, .rs1-dot { offset-path: path("M 40,110 C 59,110 77,165 96,165 C 115,165 133,55 152,55 C 171,55 189,162 208,162 C 227,162 245,52 264,52 C 283,52 301,158 320,158 C 339,158 357,90 376,90 C 395,90 413,118 432,118 C 451,118 469,98 488,98 C 507,98 525,112 544,112 C 563,112 581,88 600,88 C 619,88 637,68 656,68 C 675,68 693,48 712,48 C 731,48 749,34 768,34"); offset-distance: 0%; offset-rotate: 0deg; animation: rs1-dot-move 6s cubic-bezier(0.42, 0, 0.28, 1) infinite; }
-      .rs1-dot-halo { fill: #FF3D1A; r: 9; opacity: 0; animation-name: rs1-dot-move, rs1-dot-halo-pulse; animation-duration: 6s, 1s; animation-timing-function: cubic-bezier(0.42, 0, 0.28, 1), ease-in-out; animation-iteration-count: infinite, infinite; }
-      .rs1-dot { fill: #FF3D1A; r: 2.5; }
-      @keyframes rs1-dot-move { 0% { offset-distance: 0%; opacity: 0; } 3% { offset-distance: 0%; opacity: 1; } 67% { offset-distance: 100%; opacity: 1; } 82% { offset-distance: 100%; opacity: 1; } 94% { offset-distance: 100%; opacity: 0; } 100% { offset-distance: 0%; opacity: 0; } }
-      @keyframes rs1-dot-halo-pulse { 0% { r: 4; opacity: 0.18; } 50% { r: 10; opacity: 0; } 100% { r: 4; opacity: 0.18; } }
-      .rs1-node-mid { fill: none; stroke: #FF3D1A; stroke-width: 1; r: 4; opacity: 0; animation: rs1-node-mid-show 6s ease-in-out infinite; }
-      .rs1-node-mid-dot { fill: #FF3D1A; r: 1.5; opacity: 0; animation: rs1-node-mid-show 6s ease-in-out infinite; }
-      @keyframes rs1-node-mid-show { 0% { opacity: 0; } 30% { opacity: 0; } 34% { opacity: 0.9; } 82% { opacity: 0.9; } 94% { opacity: 0; } 100% { opacity: 0; } }
-      .rs1-node-end { fill: none; stroke: #FF3D1A; stroke-width: 1; r: 5; opacity: 0; animation: rs1-node-end-show 6s ease-in-out infinite; }
-      .rs1-node-end-dot { fill: #FF3D1A; r: 2; opacity: 0; animation: rs1-node-end-show 6s ease-in-out infinite; }
-      @keyframes rs1-node-end-show { 0% { opacity: 0; } 66% { opacity: 0; } 70% { opacity: 1; } 82% { opacity: 1; } 94% { opacity: 0; } 100% { opacity: 0; } }
-      .rs1-endlabel { font-family: var(--f-mono); font-size: 8px; fill: #FF3D1A; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0; animation: rs1-endlabel-show 6s ease-in-out infinite; }
-      @keyframes rs1-endlabel-show { 0% { opacity: 0; } 68% { opacity: 0; } 74% { opacity: 0.9; } 82% { opacity: 0.9; } 94% { opacity: 0; } 100% { opacity: 0; } }
+      .rs1-sep {
+        stroke: #2e2e2e;
+        stroke-width: 0.75;
+        stroke-dasharray: 3 5;
+        fill: none;
+        opacity: 0.5;
+      }
+      .rs1-sep-label {
+        font-family: var(--f-mono);
+        font-size: 8px;
+        fill: #7a7670;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .rs1-zone-label {
+        font-family: var(--f-mono);
+        font-size: 8px;
+        fill: #7a7670;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        opacity: 0.55;
+      }
+      .rs1-tick {
+        stroke: #7a7670;
+        stroke-width: 0.75;
+        opacity: 0.35;
+      }
+      .rs1-day-num {
+        font-family: var(--f-mono);
+        font-size: 8px;
+        fill: #7a7670;
+        letter-spacing: 0.12em;
+        text-anchor: middle;
+        opacity: 0.45;
+      }
+      .rs1-ghost {
+        fill: none;
+        stroke: #ff3d1a;
+        stroke-width: 1;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.07;
+      }
+      .rs1-glow {
+        fill: none;
+        stroke: #ff3d1a;
+        stroke-width: 7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1900;
+        stroke-dashoffset: 1900;
+        opacity: 0.22;
+        animation: rs1-draw 6s cubic-bezier(0.42, 0, 0.28, 1) infinite;
+      }
+      .rs1-line {
+        fill: none;
+        stroke: #ff3d1a;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1900;
+        stroke-dashoffset: 1900;
+        animation: rs1-draw 6s cubic-bezier(0.42, 0, 0.28, 1) infinite;
+      }
+      @keyframes rs1-draw {
+        0% {
+          stroke-dashoffset: 1900;
+          opacity: 1;
+        }
+        67% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        82% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        94% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+        100% {
+          stroke-dashoffset: 1900;
+          opacity: 0;
+        }
+      }
+      .rs1-dot-halo,
+      .rs1-dot {
+        offset-path: path(
+          "M 40,185 C 59,185 77,210 96,210 C 115,210 133,158 152,158 C 171,158 189,205 208,205 C 227,205 245,152 264,152 C 283,152 301,198 320,198 C 339,198 357,158 376,158 C 395,158 413,140 432,140 C 451,140 469,112 488,112 C 507,112 525,88 544,88 C 563,88 581,66 600,66 C 619,66 637,48 656,48 C 675,48 693,34 712,34 C 731,34 749,20 768,20"
+        );
+        offset-distance: 0%;
+        offset-rotate: 0deg;
+        animation: rs1-dot-move 6s cubic-bezier(0.42, 0, 0.28, 1) infinite;
+      }
+      .rs1-dot-halo {
+        fill: #ff3d1a;
+        r: 9;
+        opacity: 0;
+        animation-name: rs1-dot-move, rs1-dot-halo-pulse;
+        animation-duration: 6s, 1s;
+        animation-timing-function: cubic-bezier(0.42, 0, 0.28, 1), ease-in-out;
+        animation-iteration-count: infinite, infinite;
+      }
+      .rs1-dot {
+        fill: #ff3d1a;
+        r: 2.5;
+      }
+      @keyframes rs1-dot-move {
+        0% {
+          offset-distance: 0%;
+          opacity: 0;
+        }
+        3% {
+          offset-distance: 0%;
+          opacity: 1;
+        }
+        67% {
+          offset-distance: 100%;
+          opacity: 1;
+        }
+        82% {
+          offset-distance: 100%;
+          opacity: 1;
+        }
+        94% {
+          offset-distance: 100%;
+          opacity: 0;
+        }
+        100% {
+          offset-distance: 0%;
+          opacity: 0;
+        }
+      }
+      @keyframes rs1-dot-halo-pulse {
+        0% {
+          r: 4;
+          opacity: 0.18;
+        }
+        50% {
+          r: 10;
+          opacity: 0;
+        }
+        100% {
+          r: 4;
+          opacity: 0.18;
+        }
+      }
+      .rs1-node-mid {
+        fill: none;
+        stroke: #ff3d1a;
+        stroke-width: 1;
+        r: 4;
+        opacity: 0;
+        animation: rs1-node-mid-show 6s ease-in-out infinite;
+      }
+      .rs1-node-mid-dot {
+        fill: #ff3d1a;
+        r: 1.5;
+        opacity: 0;
+        animation: rs1-node-mid-show 6s ease-in-out infinite;
+      }
+      @keyframes rs1-node-mid-show {
+        0% {
+          opacity: 0;
+        }
+        30% {
+          opacity: 0;
+        }
+        34% {
+          opacity: 0.9;
+        }
+        82% {
+          opacity: 0.9;
+        }
+        94% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .rs1-node-end {
+        fill: none;
+        stroke: #ff3d1a;
+        stroke-width: 1;
+        r: 5;
+        opacity: 0;
+        animation: rs1-node-end-show 6s ease-in-out infinite;
+      }
+      .rs1-node-end-dot {
+        fill: #ff3d1a;
+        r: 2;
+        opacity: 0;
+        animation: rs1-node-end-show 6s ease-in-out infinite;
+      }
+      @keyframes rs1-node-end-show {
+        0% {
+          opacity: 0;
+        }
+        66% {
+          opacity: 0;
+        }
+        70% {
+          opacity: 1;
+        }
+        82% {
+          opacity: 1;
+        }
+        94% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .rs1-endlabel {
+        font-family: var(--f-mono);
+        font-size: 8px;
+        fill: #ff3d1a;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: rs1-endlabel-show 6s ease-in-out infinite;
+      }
+      @keyframes rs1-endlabel-show {
+        0% {
+          opacity: 0;
+        }
+        68% {
+          opacity: 0;
+        }
+        74% {
+          opacity: 0.9;
+        }
+        82% {
+          opacity: 0.9;
+        }
+        94% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 
       .cta-box {
-        background: var(--surface);
-        border: 1px solid var(--border-strong);
+        background: rgba(26, 26, 26, 0.55);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(62, 62, 62, 0.6);
         padding: 28px;
         max-width: 500px;
         border-radius: var(--radius-lg);
@@ -449,8 +817,13 @@
         gap: 8px;
       }
       @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.25; }
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.25;
+        }
       }
       .urgency__dot {
         width: 7px;
@@ -550,7 +923,7 @@
         position: relative;
       }
       .proof-block::before {
-        content: "“";
+        content: "„";
         position: absolute;
         top: -10px;
         left: 18px;
@@ -616,7 +989,10 @@
         padding: 18px 22px;
         background: var(--surface);
         border-left: 3px solid transparent;
-        transition: border-color 0.25s, background 0.25s, transform 0.25s;
+        transition:
+          border-color 0.25s,
+          background 0.25s,
+          transform 0.25s;
         border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
       }
       .pain__item:hover {
@@ -654,15 +1030,16 @@
         position: relative;
         width: 100%;
         height: 280px;
-        background: linear-gradient(180deg, #0B0B0B 0%, #100E0C 50%, #0B0B0B 100%);
+        background: linear-gradient(
+          180deg,
+          #0b0b0b 0%,
+          #100e0c 50%,
+          #0b0b0b 100%
+        );
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-        margin: 0;
       }
       .anim-zone--break svg {
         position: absolute;
@@ -701,25 +1078,144 @@
         color: var(--muted);
       }
 
-      .rs2-bg { fill: transparent; }
-      .rs2-ch { stroke: #E8E4DC; stroke-width: 0.5; fill: none; opacity: 0.055; }
-      .rs2-diag { stroke: #E8E4DC; stroke-width: 0.5; fill: none; opacity: 0.025; }
-      .rs2-origin { fill: #E8E4DC; animation: rs2-origin-breathe 5s ease-in-out infinite; }
-      @keyframes rs2-origin-breathe { 0%, 100% { r: 1.5; opacity: 0.25; } 50% { r: 2.5; opacity: 0.45; } }
-      .rs2-ring { fill: none; stroke: #E8E4DC; stroke-width: 0.6; r: 6; opacity: 0; animation: rs2-ripple 9s linear infinite; }
-      .rs2-ring--red { fill: none; stroke: #FF3D1A; stroke-width: 0.8; r: 6; opacity: 0; animation: rs2-ripple-red 9s linear infinite; }
-      @keyframes rs2-ripple { 0% { r: 6; opacity: 0; } 4% { r: 6; opacity: 0.28; } 55% { r: 560; opacity: 0.06; } 80% { r: 820; opacity: 0; } 100% { r: 820; opacity: 0; } }
-      @keyframes rs2-ripple-red { 0% { r: 6; opacity: 0; } 4% { r: 6; opacity: 0.18; } 55% { r: 560; opacity: 0.04; } 80% { r: 820; opacity: 0; } 100% { r: 820; opacity: 0; } }
-      .rs2-r1 { animation-delay: 0s; }
-      .rs2-r2 { animation-delay: -1.125s; }
-      .rs2-r3 { animation-delay: -2.25s; }
-      .rs2-r4 { animation-delay: -3.375s; }
-      .rs2-r5 { animation-delay: -4.5s; }
-      .rs2-r6 { animation-delay: -5.625s; }
-      .rs2-r7 { animation-delay: -6.75s; }
-      .rs2-r8 { animation-delay: -7.875s; }
-      .rs2-halo { fill: none; stroke: #E8E4DC; stroke-width: 40; r: 30; opacity: 0; animation: rs2-halo-pulse 8s ease-in-out infinite; filter: url(#rs2-f-halo); }
-      @keyframes rs2-halo-pulse { 0%, 100% { r: 60; opacity: 0; } 30% { r: 90; opacity: 0.03; } 60% { r: 120; opacity: 0; } }
+      .rs2-bg {
+        fill: transparent;
+      }
+      .rs2-ch {
+        stroke: #e8e4dc;
+        stroke-width: 0.5;
+        fill: none;
+        opacity: 0.055;
+      }
+      .rs2-diag {
+        stroke: #e8e4dc;
+        stroke-width: 0.5;
+        fill: none;
+        opacity: 0.025;
+      }
+      .rs2-origin {
+        fill: #e8e4dc;
+        animation: rs2-origin-breathe 5s ease-in-out infinite;
+      }
+      @keyframes rs2-origin-breathe {
+        0%,
+        100% {
+          r: 1.5;
+          opacity: 0.25;
+        }
+        50% {
+          r: 2.5;
+          opacity: 0.45;
+        }
+      }
+      .rs2-ring {
+        fill: none;
+        stroke: #e8e4dc;
+        stroke-width: 0.6;
+        r: 6;
+        opacity: 0;
+        animation: rs2-ripple 9s linear infinite;
+      }
+      .rs2-ring--red {
+        fill: none;
+        stroke: #ff3d1a;
+        stroke-width: 0.8;
+        r: 6;
+        opacity: 0;
+        animation: rs2-ripple-red 9s linear infinite;
+      }
+      @keyframes rs2-ripple {
+        0% {
+          r: 6;
+          opacity: 0;
+        }
+        4% {
+          r: 6;
+          opacity: 0.28;
+        }
+        55% {
+          r: 560;
+          opacity: 0.06;
+        }
+        80% {
+          r: 820;
+          opacity: 0;
+        }
+        100% {
+          r: 820;
+          opacity: 0;
+        }
+      }
+      @keyframes rs2-ripple-red {
+        0% {
+          r: 6;
+          opacity: 0;
+        }
+        4% {
+          r: 6;
+          opacity: 0.18;
+        }
+        55% {
+          r: 560;
+          opacity: 0.04;
+        }
+        80% {
+          r: 820;
+          opacity: 0;
+        }
+        100% {
+          r: 820;
+          opacity: 0;
+        }
+      }
+      .rs2-r1 {
+        animation-delay: 0s;
+      }
+      .rs2-r2 {
+        animation-delay: -1.125s;
+      }
+      .rs2-r3 {
+        animation-delay: -2.25s;
+      }
+      .rs2-r4 {
+        animation-delay: -3.375s;
+      }
+      .rs2-r5 {
+        animation-delay: -4.5s;
+      }
+      .rs2-r6 {
+        animation-delay: -5.625s;
+      }
+      .rs2-r7 {
+        animation-delay: -6.75s;
+      }
+      .rs2-r8 {
+        animation-delay: -7.875s;
+      }
+      .rs2-halo {
+        fill: none;
+        stroke: #e8e4dc;
+        stroke-width: 40;
+        r: 30;
+        opacity: 0;
+        animation: rs2-halo-pulse 8s ease-in-out infinite;
+        filter: url(#rs2-f-halo);
+      }
+      @keyframes rs2-halo-pulse {
+        0%,
+        100% {
+          r: 60;
+          opacity: 0;
+        }
+        30% {
+          r: 90;
+          opacity: 0.03;
+        }
+        60% {
+          r: 120;
+          opacity: 0;
+        }
+      }
 
       .about {
         padding: 72px 0;
@@ -848,37 +1344,511 @@
         height: auto;
       }
 
-      .rs3-bg { fill: #141414; }
-      .rs3-sep-h { stroke: #2E2E2E; stroke-width: 1; fill: none; }
-      .rs3-grid { stroke: #2E2E2E; stroke-width: 0.5; stroke-dasharray: 2 4; fill: none; opacity: 0.6; }
-      .rs3-sep-v { stroke: #2E2E2E; stroke-width: 0.75; stroke-dasharray: 2 4; fill: none; opacity: 0.45; }
-      .rs3-baseline { stroke: #2E2E2E; stroke-width: 1; fill: none; }
-      .rs3-slot-id { font-family: var(--f-mono); font-size: 8px; fill: #7A7670; letter-spacing: 0.18em; text-transform: uppercase; }
-      .rs3-legend-lbl { font-family: var(--f-mono); font-size: 7.5px; fill: #7A7670; letter-spacing: 0.14em; text-transform: uppercase; }
-      .rs3-phase-lbl { font-family: var(--f-mono); font-size: 7.5px; letter-spacing: 0.14em; text-transform: uppercase; }
-      .rs3-day-num { font-family: var(--f-mono); font-size: 7px; fill: #7A7670; letter-spacing: 0.1em; text-anchor: middle; opacity: 0.5; }
-      .rs3-bar { transform-box: fill-box; transform-origin: center bottom; transform: scaleY(0); opacity: 0; animation-duration: 10s; animation-timing-function: ease-out; animation-iteration-count: infinite; }
-      @keyframes rs3-b00 { 0% { transform:scaleY(0); opacity:1 } 4% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } }
-      @keyframes rs3-b01 { 0%,4% { transform:scaleY(0); opacity:0 } 8% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b02 { 0%,8% { transform:scaleY(0); opacity:0 } 12% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b03 { 0%,12% { transform:scaleY(0); opacity:0 } 16% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b04 { 0%,16% { transform:scaleY(0); opacity:0 } 20% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b05 { 0%,20% { transform:scaleY(0); opacity:0 } 24% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b06 { 0%,24% { transform:scaleY(0); opacity:0 } 28% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b07 { 0%,28% { transform:scaleY(0); opacity:0 } 32% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b08 { 0%,32% { transform:scaleY(0); opacity:0 } 36% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b09 { 0%,36% { transform:scaleY(0); opacity:0 } 40% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b10 { 0%,40% { transform:scaleY(0); opacity:0 } 44% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b11 { 0%,44% { transform:scaleY(0); opacity:0 } 48% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b12 { 0%,48% { transform:scaleY(0); opacity:0 } 52% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      @keyframes rs3-b13 { 0%,52% { transform:scaleY(0); opacity:0 } 56% { transform:scaleY(1); opacity:1 } 80% { transform:scaleY(1); opacity:1 } 90% { transform:scaleY(0); opacity:0 } 100% { opacity:0 } }
-      .rs3-b00 { animation-name: rs3-b00 } .rs3-b01 { animation-name: rs3-b01 } .rs3-b02 { animation-name: rs3-b02 } .rs3-b03 { animation-name: rs3-b03 } .rs3-b04 { animation-name: rs3-b04 } .rs3-b05 { animation-name: rs3-b05 } .rs3-b06 { animation-name: rs3-b06 } .rs3-b07 { animation-name: rs3-b07 } .rs3-b08 { animation-name: rs3-b08 } .rs3-b09 { animation-name: rs3-b09 } .rs3-b10 { animation-name: rs3-b10 } .rs3-b11 { animation-name: rs3-b11 } .rs3-b12 { animation-name: rs3-b12 } .rs3-b13 { animation-name: rs3-b13 }
-      .rs3-pl { opacity: 0; animation-duration: 10s; animation-timing-function: ease-out; animation-iteration-count: infinite; font-family: var(--f-mono); font-size: 7.5px; letter-spacing: 0.14em; text-transform: uppercase; text-anchor: middle; }
-      @keyframes rs3-pl1 { 0% { opacity:0 } 2% { opacity:1 } 80% { opacity:1 } 90% { opacity:0 } }
-      @keyframes rs3-pl2 { 0%,11% { opacity:0 } 14% { opacity:1 } 80% { opacity:1 } 90% { opacity:0 } 100%{ opacity:0 } }
-      @keyframes rs3-pl3 { 0%,27% { opacity:0 } 30% { opacity:1 } 80% { opacity:1 } 90% { opacity:0 } 100%{ opacity:0 } }
-      @keyframes rs3-pl4 { 0%,43% { opacity:0 } 46% { opacity:1 } 80% { opacity:1 } 90% { opacity:0 } 100%{ opacity:0 } }
-      .rs3-pl1 { animation-name: rs3-pl1; fill: #FF3D1A; } .rs3-pl2 { animation-name: rs3-pl2; fill: #FF7A00; } .rs3-pl3 { animation-name: rs3-pl3; fill: #C9A84C; } .rs3-pl4 { animation-name: rs3-pl4; fill: #4ade80; }
+      .rs3-bg {
+        fill: #141414;
+      }
+      .rs3-sep-h {
+        stroke: #2e2e2e;
+        stroke-width: 1;
+        fill: none;
+      }
+      .rs3-grid {
+        stroke: #2e2e2e;
+        stroke-width: 0.5;
+        stroke-dasharray: 2 4;
+        fill: none;
+        opacity: 0.6;
+      }
+      .rs3-sep-v {
+        stroke: #2e2e2e;
+        stroke-width: 0.75;
+        stroke-dasharray: 2 4;
+        fill: none;
+        opacity: 0.45;
+      }
+      .rs3-baseline {
+        stroke: #2e2e2e;
+        stroke-width: 1;
+        fill: none;
+      }
+      .rs3-slot-id {
+        font-family: var(--f-mono);
+        font-size: 8px;
+        fill: #7a7670;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .rs3-legend-lbl {
+        font-family: var(--f-mono);
+        font-size: 7.5px;
+        fill: #7a7670;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .rs3-phase-lbl {
+        font-family: var(--f-mono);
+        font-size: 7.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .rs3-day-num {
+        font-family: var(--f-mono);
+        font-size: 7px;
+        fill: #7a7670;
+        letter-spacing: 0.1em;
+        text-anchor: middle;
+        opacity: 0.5;
+      }
+      .rs3-bar {
+        transform-box: fill-box;
+        transform-origin: center bottom;
+        transform: scaleY(0);
+        opacity: 0;
+        animation-duration: 10s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+      }
+      @keyframes rs3-b00 {
+        0% {
+          transform: scaleY(0);
+          opacity: 1;
+        }
+        4% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b01 {
+        0%,
+        4% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        8% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b02 {
+        0%,
+        8% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        12% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b03 {
+        0%,
+        12% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        16% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b04 {
+        0%,
+        16% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        20% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b05 {
+        0%,
+        20% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        24% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b06 {
+        0%,
+        24% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        28% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b07 {
+        0%,
+        28% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        32% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b08 {
+        0%,
+        32% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        36% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b09 {
+        0%,
+        36% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        40% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b10 {
+        0%,
+        40% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        44% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b11 {
+        0%,
+        44% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        48% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b12 {
+        0%,
+        48% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        52% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-b13 {
+        0%,
+        52% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        56% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        80% {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scaleY(0);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .rs3-b00 {
+        animation-name: rs3-b00;
+      }
+      .rs3-b01 {
+        animation-name: rs3-b01;
+      }
+      .rs3-b02 {
+        animation-name: rs3-b02;
+      }
+      .rs3-b03 {
+        animation-name: rs3-b03;
+      }
+      .rs3-b04 {
+        animation-name: rs3-b04;
+      }
+      .rs3-b05 {
+        animation-name: rs3-b05;
+      }
+      .rs3-b06 {
+        animation-name: rs3-b06;
+      }
+      .rs3-b07 {
+        animation-name: rs3-b07;
+      }
+      .rs3-b08 {
+        animation-name: rs3-b08;
+      }
+      .rs3-b09 {
+        animation-name: rs3-b09;
+      }
+      .rs3-b10 {
+        animation-name: rs3-b10;
+      }
+      .rs3-b11 {
+        animation-name: rs3-b11;
+      }
+      .rs3-b12 {
+        animation-name: rs3-b12;
+      }
+      .rs3-b13 {
+        animation-name: rs3-b13;
+      }
+      .rs3-pl {
+        opacity: 0;
+        animation-duration: 10s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+        font-family: var(--f-mono);
+        font-size: 7.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-anchor: middle;
+      }
+      @keyframes rs3-pl1 {
+        0% {
+          opacity: 0;
+        }
+        2% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-pl2 {
+        0%,
+        11% {
+          opacity: 0;
+        }
+        14% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-pl3 {
+        0%,
+        27% {
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rs3-pl4 {
+        0%,
+        43% {
+          opacity: 0;
+        }
+        46% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .rs3-pl1 {
+        animation-name: rs3-pl1;
+        fill: #ff3d1a;
+      }
+      .rs3-pl2 {
+        animation-name: rs3-pl2;
+        fill: #ff7a00;
+      }
+      .rs3-pl3 {
+        animation-name: rs3-pl3;
+        fill: #c9a84c;
+      }
+      .rs3-pl4 {
+        animation-name: rs3-pl4;
+        fill: #4ade80;
+      }
 
       .days {
         display: grid;
@@ -889,13 +1859,36 @@
         display: grid;
         grid-template-columns: 90px 1fr;
         background: var(--surface);
-        border-left: 3px solid transparent;
-        transition: border-color 0.2s, transform 0.2s;
+        border-left: 3px solid var(--day-phase-color, var(--border));
+        transition:
+          filter 0.2s,
+          transform 0.2s;
         border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
       }
       .day-row:hover {
-        border-left-color: var(--accent);
+        filter: brightness(1.08);
         transform: translateX(4px);
+      }
+      .day-row[data-phase="1"] {
+        --day-phase-color: var(--accent);
+      }
+      .day-row[data-phase="2"] {
+        --day-phase-color: var(--accent-2);
+      }
+      .day-row[data-phase="3"] {
+        --day-phase-color: var(--gold);
+      }
+      .day-row[data-phase="4"] {
+        --day-phase-color: var(--green);
+      }
+      .day-row__num-phase {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--day-phase-color, var(--muted));
+        margin-bottom: 6px;
+        flex-shrink: 0;
       }
       .day-row__label {
         padding: 18px 12px;
@@ -956,7 +1949,9 @@
         background: var(--bg);
         padding: 24px;
         border-top: 3px solid var(--border);
-        transition: border-color 0.2s, transform 0.2s;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
         border-radius: 0 0 var(--radius-lg) var(--radius-lg);
       }
       .testi:hover {
@@ -1095,14 +2090,25 @@
         animation: ghostText 8s ease-in-out infinite;
       }
       @keyframes ghostText {
-        0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-        50% { opacity: 1; transform: translate(-50%, -50%) scale(1.02); }
+        0%,
+        100% {
+          opacity: 0.6;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1.02);
+        }
       }
       .final__atm::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 50% 50%, rgba(255, 61, 26, 0.08) 0%, transparent 60%);
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(255, 61, 26, 0.08) 0%,
+          transparent 60%
+        );
       }
 
       .final > .wrap {
@@ -1241,13 +2247,28 @@
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 14px;
       }
-      .footer__copy {
+      .footer__copy,
+      .footer__link {
         font-family: var(--f-mono);
         font-size: 10px;
         letter-spacing: 0.12em;
         color: var(--muted);
+      }
+      .footer__link {
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+      .footer__link:hover {
+        color: var(--text);
+      }
+      .footer__nav {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: center;
       }
 
       .overlay {
@@ -1290,8 +2311,14 @@
         border-radius: 12px 12px 0 0;
       }
       @keyframes slideUp {
-        from { transform: translateY(40px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
+        from {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
       }
       .popup__close {
         position: absolute;
@@ -1383,7 +2410,9 @@
         cursor: pointer;
         margin-bottom: 12px;
         border-radius: var(--radius);
-        transition: background 0.2s, transform 0.1s;
+        transition:
+          background 0.2s,
+          transform 0.1s;
         min-height: 52px;
         -webkit-tap-highlight-color: transparent;
       }
@@ -1402,7 +2431,9 @@
         cursor: pointer;
         padding: 10px 20px;
         border-radius: var(--radius);
-        transition: border-color 0.2s, color 0.2s;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
         min-height: 44px;
         -webkit-tap-highlight-color: transparent;
       }
@@ -1412,18 +2443,36 @@
       }
 
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-      .fu  { animation: fadeUp 0.7s ease both; }
-      .fu2 { animation: fadeUp 0.7s 0.12s ease both; }
-      .fu3 { animation: fadeUp 0.7s 0.24s ease both; }
-      .fu4 { animation: fadeUp 0.7s 0.36s ease both; }
-      .fu5 { animation: fadeUp 0.7s 0.48s ease both; }
+      .fu {
+        animation: fadeUp 0.7s ease both;
+      }
+      .fu2 {
+        animation: fadeUp 0.7s 0.12s ease both;
+      }
+      .fu3 {
+        animation: fadeUp 0.7s 0.24s ease both;
+      }
+      .fu4 {
+        animation: fadeUp 0.7s 0.36s ease both;
+      }
+      .fu5 {
+        animation: fadeUp 0.7s 0.48s ease both;
+      }
       .reveal {
         opacity: 0;
         transform: translateY(18px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
       }
       .reveal.in {
         opacity: 1;
@@ -1431,166 +2480,361 @@
       }
 
       @media (max-width: 768px) {
-        body { font-size: 15px; }
-        .hero { padding: 52px 0 44px; }
-        .hero__title { letter-spacing: -0.04em; }
-        .hero__tagline { font-size: 18px; }
-        .anim-zone--hero { height: auto; padding: 10px 0; }
-        .anim-zone__overlay-r { font-size: 38px; }
-        .anim-zone--break { height: 220px; }
-        .cta-box { max-width: 100%; }
-        .stats__grid { grid-template-columns: 1fr; gap: 0; }
-        .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 22px 0; }
-        .stat:last-child { border-bottom: none; }
-        .proof-block__results { grid-template-columns: 1fr; }
-        .about__grid { grid-template-columns: 1fr; gap: 32px; }
-        .parts { grid-template-columns: 1fr; }
-        .testi-grid { grid-template-columns: 1fr; }
-        .guarantee__steps { grid-template-columns: 1fr; gap: 8px; }
-        .guarantee__box { padding: 28px 22px; }
-        .final__now { font-size: clamp(36px, 11vw, 52px); }
-        .overlay { align-items: flex-end; padding: 0; }
-        .popup { border-radius: 16px 16px 0 0; max-width: 100%; padding: 36px 22px 30px; }
+        body {
+          font-size: 15px;
+        }
+        .hero {
+          padding: 80px 0 60px;
+          min-height: 100svh;
+        }
+        .hero__title {
+          letter-spacing: -0.04em;
+        }
+        .hero__tagline {
+          font-size: 18px;
+        }
+        .anim-zone--break {
+          height: 220px;
+        }
+        .cta-box {
+          max-width: 100%;
+        }
+        .stats__grid {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+        .stat {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+          padding: 22px 0;
+        }
+        .stat:last-child {
+          border-bottom: none;
+        }
+        .proof-block__results {
+          grid-template-columns: 1fr;
+        }
+        .about__grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .parts {
+          grid-template-columns: 1fr;
+        }
+        .testi-grid {
+          grid-template-columns: 1fr;
+        }
+        .guarantee__steps {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        .guarantee__box {
+          padding: 28px 22px;
+        }
+        .final__now {
+          font-size: clamp(36px, 11vw, 52px);
+        }
+        .overlay {
+          align-items: flex-end;
+          padding: 0;
+        }
+        .popup {
+          border-radius: 16px 16px 0 0;
+          max-width: 100%;
+          padding: 36px 22px 30px;
+        }
+        .footer__in {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+        }
       }
 
       @media (max-width: 480px) {
-        .wrap, .wrap-w { padding: 0 18px; }
-        .topbar__inner { padding: 0 18px; }
-        .btn--sm { font-size: 11px; padding: 10px 14px; }
-        .hero { padding: 44px 0 40px; }
-        .hero__title { font-size: clamp(52px, 16vw, 78px); letter-spacing: -0.04em; }
-        .hero__tagline { font-size: 17px; padding-left: 16px; }
-        .cta-box { padding: 22px 18px; }
-        .cta-box__now { font-size: clamp(32px, 10vw, 42px); }
-        .cta-box__price-row { gap: 10px; }
-        .cta-box__save { font-size: 9px; }
-        .btn { font-size: 13px; padding: 16px 22px; }
-        .btn--full { padding: 17px 22px; }
-        .stat__num { font-size: clamp(30px, 9vw, 44px); }
-        .pain { padding: 52px 0; }
-        .pain__text { font-size: 14.5px; }
-        .about { padding: 52px 0; }
-        .about__quote { font-size: 18px; }
-        .contents { padding: 52px 0; }
-        .part { padding: 24px 20px; }
-        .plan { padding: 52px 0; }
-        .day-row { grid-template-columns: 78px 1fr; }
-        .day-row__num { font-size: 18px; }
-        .social { padding: 52px 0; }
-        .guarantee { padding: 52px 0; }
-        .final { padding: 60px 0; }
-        .final__now { font-size: 44px; }
-        .final__old { font-size: 19px; }
-        .final__badges { font-size: 9px; }
-        .faq { padding: 44px 0; }
-        .faq__q { font-size: 14px; padding: 17px 18px; }
-        .footer__in { flex-direction: column; align-items: flex-start; gap: 8px; }
-        .anim-zone--break { height: 200px; }
-        .plan-viz { padding: 0; border: none; background: transparent; }
+        .wrap,
+        .wrap-w {
+          padding: 0 18px;
+        }
+        .topbar__inner {
+          padding: 0 18px;
+        }
+        .btn--sm {
+          font-size: 11px;
+          padding: 10px 14px;
+        }
+        .hero {
+          padding: 80px 0 60px;
+          min-height: 100svh;
+        }
+        .hero__title {
+          font-size: clamp(52px, 16vw, 78px);
+          letter-spacing: -0.04em;
+        }
+        .hero__tagline {
+          font-size: 17px;
+          padding-left: 16px;
+        }
+        .cta-box {
+          padding: 22px 18px;
+        }
+        .cta-box__now {
+          font-size: clamp(32px, 10vw, 42px);
+        }
+        .cta-box__price-row {
+          gap: 10px;
+        }
+        .cta-box__save {
+          font-size: 9px;
+        }
+        .btn {
+          font-size: 13px;
+          padding: 16px 22px;
+        }
+        .btn--full {
+          padding: 17px 22px;
+        }
+        .stat__num {
+          font-size: clamp(30px, 9vw, 44px);
+        }
+        .pain {
+          padding: 52px 0;
+        }
+        .pain__text {
+          font-size: 14.5px;
+        }
+        .about {
+          padding: 52px 0;
+        }
+        .about__quote {
+          font-size: 18px;
+        }
+        .contents {
+          padding: 52px 0;
+        }
+        .part {
+          padding: 24px 20px;
+        }
+        .plan {
+          padding: 52px 0;
+        }
+        .day-row {
+          grid-template-columns: 78px 1fr;
+        }
+        .day-row__num {
+          font-size: 18px;
+        }
+        .social {
+          padding: 52px 0;
+        }
+        .guarantee {
+          padding: 52px 0;
+        }
+        .final {
+          padding: 60px 0;
+        }
+        .final__now {
+          font-size: 44px;
+        }
+        .final__old {
+          font-size: 19px;
+        }
+        .final__badges {
+          font-size: 9px;
+        }
+        .faq {
+          padding: 44px 0;
+        }
+        .faq__q {
+          font-size: 14px;
+          padding: 17px 18px;
+        }
+        .anim-zone--break {
+          height: 200px;
+        }
+        .plan-viz {
+          padding: 0;
+          border: none;
+          background: transparent;
+        }
       }
 
       @media (max-width: 360px) {
-        .hero__title { font-size: 48px; }
-        .stitle { font-size: 24px; }
-        .cta-box__now { font-size: 30px; }
+        .hero__title {
+          font-size: 48px;
+        }
+        .stitle {
+          font-size: 24px;
+        }
+        .cta-box__now {
+          font-size: 30px;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
           animation-duration: 0.01ms !important;
           animation-iteration-count: 1 !important;
           transition-duration: 0.01ms !important;
         }
-        .rs1-line, .rs1-glow { animation: none; stroke-dashoffset: 0; opacity: 1; }
-        .rs1-glow { opacity: 0.18; }
-        .rs1-dot, .rs1-dot-halo { animation: none; offset-distance: 100%; opacity: 1; }
-        .rs1-dot-halo { opacity: 0.15; r: 8; }
-        .rs1-node-mid, .rs1-node-mid-dot, .rs1-node-end, .rs1-node-end-dot, .rs1-endlabel { animation: none; opacity: 1; }
-        .rs2-ring, .rs2-ring--red { animation: none; r: 220; opacity: 0.07; }
-        .rs2-ring--red { r: 380; opacity: 0.05; }
-        .rs2-origin { animation: none; r: 2; opacity: 0.3; }
-        .rs2-halo { animation: none; opacity: 0; }
-        .rs3-bar { animation: none; transform: scaleY(1); opacity: 1; }
-        .rs3-pl { animation: none; opacity: 1; }
+        .rs1-line,
+        .rs1-glow {
+          animation: none;
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        .rs1-glow {
+          opacity: 0.18;
+        }
+        .rs1-dot,
+        .rs1-dot-halo {
+          animation: none;
+          offset-distance: 100%;
+          opacity: 1;
+        }
+        .rs1-dot-halo {
+          opacity: 0.15;
+          r: 8;
+        }
+        .rs1-node-mid,
+        .rs1-node-mid-dot,
+        .rs1-node-end,
+        .rs1-node-end-dot,
+        .rs1-endlabel {
+          animation: none;
+          opacity: 1;
+        }
+        .rs2-ring,
+        .rs2-ring--red {
+          animation: none;
+          r: 220;
+          opacity: 0.07;
+        }
+        .rs2-ring--red {
+          r: 380;
+          opacity: 0.05;
+        }
+        .rs2-origin {
+          animation: none;
+          r: 2;
+          opacity: 0.3;
+        }
+        .rs2-halo {
+          animation: none;
+          opacity: 0;
+        }
+        .rs3-bar {
+          animation: none;
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        .rs3-pl {
+          animation: none;
+          opacity: 1;
+        }
       }
     </style>
   </head>
   <body>
-    <nav class="topbar">
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav class="topbar" id="topbar">
       <div class="topbar__inner">
         <a href="#" class="logo"><span class="logo__dot"></span>RESET</a>
         <a href="#kup" class="btn btn--sm">Kup — 49 PLN</a>
       </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="hero-section">
+      <svg
+        class="hero__bg-svg"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 810 220"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true">
+        <defs>
+          <filter id="rs1-f-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+          </filter>
+          <filter
+            id="rs1-f-dot-glow"
+            x="-200%"
+            y="-200%"
+            width="500%"
+            height="500%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+          </filter>
+        </defs>
+        <rect class="rs1-bg" width="810" height="220" />
+        <line class="rs1-grid" x1="34" y1="50" x2="780" y2="50" />
+        <line class="rs1-grid" x1="34" y1="110" x2="780" y2="110" />
+        <line class="rs1-grid" x1="34" y1="168" x2="780" y2="168" />
+        <line class="rs1-sep" x1="404" y1="20" x2="404" y2="178" />
+        <text class="rs1-sep-label" x="404" y="196" text-anchor="middle"></text>
+        <line class="rs1-tick" x1="40" y1="173" x2="40" y2="179" />
+        <line class="rs1-tick" x1="96" y1="173" x2="96" y2="179" />
+        <line class="rs1-tick" x1="152" y1="173" x2="152" y2="179" />
+        <line class="rs1-tick" x1="208" y1="173" x2="208" y2="179" />
+        <line class="rs1-tick" x1="264" y1="173" x2="264" y2="179" />
+        <line class="rs1-tick" x1="320" y1="173" x2="320" y2="179" />
+        <line class="rs1-tick" x1="376" y1="173" x2="376" y2="179" />
+        <line class="rs1-tick" x1="432" y1="173" x2="432" y2="179" />
+        <line class="rs1-tick" x1="488" y1="173" x2="488" y2="179" />
+        <line class="rs1-tick" x1="544" y1="173" x2="544" y2="179" />
+        <line class="rs1-tick" x1="600" y1="173" x2="600" y2="179" />
+        <line class="rs1-tick" x1="656" y1="173" x2="656" y2="179" />
+        <line class="rs1-tick" x1="712" y1="173" x2="712" y2="179" />
+        <line class="rs1-tick" x1="768" y1="173" x2="768" y2="179" />
+        <text class="rs1-day-num" x="40" y="193">01</text>
+        <text class="rs1-day-num" x="96" y="193">02</text>
+        <text class="rs1-day-num" x="152" y="193">03</text>
+        <text class="rs1-day-num" x="208" y="193">04</text>
+        <text class="rs1-day-num" x="264" y="193">05</text>
+        <text class="rs1-day-num" x="320" y="193">06</text>
+        <text class="rs1-day-num" x="376" y="193">07</text>
+        <text class="rs1-day-num" x="432" y="193">08</text>
+        <text class="rs1-day-num" x="488" y="193">09</text>
+        <text class="rs1-day-num" x="544" y="193">10</text>
+        <text class="rs1-day-num" x="600" y="193">11</text>
+        <text class="rs1-day-num" x="656" y="193">12</text>
+        <text class="rs1-day-num" x="712" y="193">13</text>
+        <text class="rs1-day-num" x="768" y="193">14</text>
+        <path
+          class="rs1-ghost"
+          d="M 40,185 C 59,185 77,210 96,210 C 115,210 133,158 152,158 C 171,158 189,205 208,205 C 227,205 245,152 264,152 C 283,152 301,198 320,198 C 339,198 357,158 376,158 C 395,158 413,140 432,140 C 451,140 469,112 488,112 C 507,112 525,88 544,88 C 563,88 581,66 600,66 C 619,66 637,48 656,48 C 675,48 693,34 712,34 C 731,34 749,20 768,20" />
+        <path
+          class="rs1-glow"
+          filter="url(#rs1-f-glow)"
+          d="M 40,185 C 59,185 77,210 96,210 C 115,210 133,158 152,158 C 171,158 189,205 208,205 C 227,205 245,152 264,152 C 283,152 301,198 320,198 C 339,198 357,158 376,158 C 395,158 413,140 432,140 C 451,140 469,112 488,112 C 507,112 525,88 544,88 C 563,88 581,66 600,66 C 619,66 637,48 656,48 C 675,48 693,34 712,34 C 731,34 749,20 768,20" />
+        <path
+          class="rs1-line"
+          d="M 40,185 C 59,185 77,210 96,210 C 115,210 133,158 152,158 C 171,158 189,205 208,205 C 227,205 245,152 264,152 C 283,152 301,198 320,198 C 339,198 357,158 376,158 C 395,158 413,140 432,140 C 451,140 469,112 488,112 C 507,112 525,88 544,88 C 563,88 581,66 600,66 C 619,66 637,48 656,48 C 675,48 693,34 712,34 C 731,34 749,20 768,20" />
+        <circle class="rs1-node-mid" cx="376" cy="158" />
+        <circle class="rs1-node-mid-dot" cx="376" cy="158" />
+        <circle class="rs1-node-end" cx="768" cy="20" />
+        <circle class="rs1-node-end-dot" cx="768" cy="20" />
+        <text class="rs1-endlabel" x="776" y="14">RESET</text>
+        <circle
+          class="rs1-dot-halo"
+          cx="0"
+          cy="0"
+          r="9"
+          filter="url(#rs1-f-dot-glow)" />
+        <circle class="rs1-dot" cx="0" cy="0" r="2.5" />
+      </svg>
+
       <div class="wrap">
-        <p class="hero__eyebrow fu">Ebook · Finanse osobiste · Polska 2026</p>
+        <p class="hero__eyebrow fu">Ebook · Finanse osobiste · 2026</p>
         <h1 class="hero__title fu2">RE<span>SE</span>T</h1>
-        <p class="hero__subtitle fu2">14-dniowy plan wyjścia z finansowej pułapki</p>
+        <p class="hero__subtitle fu2">
+          14-dniowy plan wyjścia z finansowej pułapki
+        </p>
+        <p class="hero__tagline fu3">
+          Zarabiasz nieźle.<br />I jakoś nic nie zostaje.
+        </p>
 
-        <div class="anim-zone anim-zone--hero fu3" data-slot="hero">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810 220" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-            <defs>
-              <filter id="rs1-f-glow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
-              </filter>
-              <filter id="rs1-f-dot-glow" x="-200%" y="-200%" width="500%" height="500%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
-              </filter>
-            </defs>
-            <rect class="rs1-bg" width="810" height="220"/>
-            <line class="rs1-grid" x1="34" y1="50"  x2="780" y2="50"/>
-            <line class="rs1-grid" x1="34" y1="110" x2="780" y2="110"/>
-            <line class="rs1-grid" x1="34" y1="168" x2="780" y2="168"/>
-            <line class="rs1-sep" x1="404" y1="20" x2="404" y2="178"/>
-            <text class="rs1-zone-label" x="40"  y="18">TYDZIEŃ 01</text>
-            <text class="rs1-zone-label" x="414" y="18">TYDZIEŃ 02</text>
-            <text class="rs1-sep-label" x="404" y="196" text-anchor="middle">↑ DZ. 07</text>
-            <line class="rs1-tick" x1="40"  y1="173" x2="40"  y2="179"/>
-            <line class="rs1-tick" x1="96"  y1="173" x2="96"  y2="179"/>
-            <line class="rs1-tick" x1="152" y1="173" x2="152" y2="179"/>
-            <line class="rs1-tick" x1="208" y1="173" x2="208" y2="179"/>
-            <line class="rs1-tick" x1="264" y1="173" x2="264" y2="179"/>
-            <line class="rs1-tick" x1="320" y1="173" x2="320" y2="179"/>
-            <line class="rs1-tick" x1="376" y1="173" x2="376" y2="179"/>
-            <line class="rs1-tick" x1="432" y1="173" x2="432" y2="179"/>
-            <line class="rs1-tick" x1="488" y1="173" x2="488" y2="179"/>
-            <line class="rs1-tick" x1="544" y1="173" x2="544" y2="179"/>
-            <line class="rs1-tick" x1="600" y1="173" x2="600" y2="179"/>
-            <line class="rs1-tick" x1="656" y1="173" x2="656" y2="179"/>
-            <line class="rs1-tick" x1="712" y1="173" x2="712" y2="179"/>
-            <line class="rs1-tick" x1="768" y1="173" x2="768" y2="179"/>
-            <text class="rs1-day-num" x="40"  y="193">01</text>
-            <text class="rs1-day-num" x="96"  y="193">02</text>
-            <text class="rs1-day-num" x="152" y="193">03</text>
-            <text class="rs1-day-num" x="208" y="193">04</text>
-            <text class="rs1-day-num" x="264" y="193">05</text>
-            <text class="rs1-day-num" x="320" y="193">06</text>
-            <text class="rs1-day-num" x="376" y="193">07</text>
-            <text class="rs1-day-num" x="432" y="193">08</text>
-            <text class="rs1-day-num" x="488" y="193">09</text>
-            <text class="rs1-day-num" x="544" y="193">10</text>
-            <text class="rs1-day-num" x="600" y="193">11</text>
-            <text class="rs1-day-num" x="656" y="193">12</text>
-            <text class="rs1-day-num" x="712" y="193">13</text>
-            <text class="rs1-day-num" x="768" y="193">14</text>
-            <path class="rs1-ghost" d="M 40,110 C 59,110 77,165 96,165 C 115,165 133,55 152,55 C 171,55 189,162 208,162 C 227,162 245,52 264,52 C 283,52 301,158 320,158 C 339,158 357,90 376,90 C 395,90 413,118 432,118 C 451,118 469,98 488,98 C 507,98 525,112 544,112 C 563,112 581,88 600,88 C 619,88 637,68 656,68 C 675,68 693,48 712,48 C 731,48 749,34 768,34"/>
-            <path class="rs1-glow" filter="url(#rs1-f-glow)" d="M 40,110 C 59,110 77,165 96,165 C 115,165 133,55 152,55 C 171,55 189,162 208,162 C 227,162 245,52 264,52 C 283,52 301,158 320,158 C 339,158 357,90 376,90 C 395,90 413,118 432,118 C 451,118 469,98 488,98 C 507,98 525,112 544,112 C 563,112 581,88 600,88 C 619,88 637,68 656,68 C 675,68 693,48 712,48 C 731,48 749,34 768,34"/>
-            <path class="rs1-line" d="M 40,110 C 59,110 77,165 96,165 C 115,165 133,55 152,55 C 171,55 189,162 208,162 C 227,162 245,52 264,52 C 283,52 301,158 320,158 C 339,158 357,90 376,90 C 395,90 413,118 432,118 C 451,118 469,98 488,98 C 507,98 525,112 544,112 C 563,112 581,88 600,88 C 619,88 637,68 656,68 C 675,68 693,48 712,48 C 731,48 749,34 768,34"/>
-            <circle class="rs1-node-mid" cx="376" cy="90"/>
-            <circle class="rs1-node-mid-dot" cx="376" cy="90"/>
-            <circle class="rs1-node-end" cx="768" cy="34"/>
-            <circle class="rs1-node-end-dot" cx="768" cy="34"/>
-            <text class="rs1-endlabel" x="776" y="27">RESET</text>
-            <circle class="rs1-dot-halo" cx="0" cy="0" r="9" filter="url(#rs1-f-dot-glow)"/>
-            <circle class="rs1-dot" cx="0" cy="0" r="2.5"/>
-          </svg>
-        </div>
-
-        <p class="hero__tagline fu4">Zarabiasz nieźle.<br />I jakoś nic nie zostaje.</p>
-
-        <div class="cta-box fu5" id="kup">
+        <div class="cta-box fu4" id="kup">
           <div class="cta-box__price-row">
             <span class="cta-box__now">49 PLN</span>
             <span class="cta-box__old">79 PLN</span>
@@ -1598,77 +2842,134 @@
           </div>
           <div class="urgency">
             <span class="urgency__dot"></span>
-            Zostało tylko 11 kopii w cenie promocyjnej
+            Cena promocyjna do końca tygodnia
           </div>
-          <a href="#" onclick="openPopup(); return false;" class="btn btn--full btn--pulse">
+          <a
+            href="#"
+            onclick="
+              openPopup();
+              return false;
+            "
+            class="btn btn--full btn--pulse">
             Pobierz RESET — 49 PLN →
           </a>
           <p class="cta-box__note">📩 PDF na maila natychmiast po zakupie</p>
-          <div class="cta-box__guarantee">14 dni gwarancji zwrotu — bez pytań</div>
+          <div class="cta-box__guarantee">
+            14 dni gwarancji zwrotu — bez pytań
+          </div>
         </div>
       </div>
     </section>
+
+    <div class="sticky-cta" id="stickyCta">
+      <div class="sticky-cta__inner">
+        <div class="sticky-cta__price">49 PLN <small>79</small></div>
+        <a
+          href="#kup"
+          onclick="
+            openPopup();
+            return false;
+          "
+          class="btn btn--full"
+          style="flex: 1"
+          >Pobierz RESET →</a
+        >
+      </div>
+    </div>
 
     <div class="stats">
       <div class="wrap-w">
         <div class="stats__grid">
           <div class="stat reveal">
             <span class="stat__num">788 mld</span>
-            <span class="stat__label">Zadłużenie polskich<br />gospodarstw domowych</span>
+            <span class="stat__label"
+              >Zadłużenie polskich<br />gospodarstw domowych</span
+            >
           </div>
           <div class="stat reveal">
             <span class="stat__num">1 na 3</span>
-            <span class="stat__label">Polaków nie przeżyłby<br />miesiąca bez wypłaty</span>
+            <span class="stat__label"
+              >Polaków nie przeżyłby<br />miesiąca bez wypłaty</span
+            >
           </div>
           <div class="stat reveal">
             <span class="stat__num">32%</span>
-            <span class="stat__label">Podatku oddajesz<br />powyżej 10 000 zł/mc</span>
+            <span class="stat__label"
+              >Podatku oddajesz<br />powyżej 10 000 zł/mc</span
+            >
           </div>
         </div>
       </div>
     </div>
 
-    <section class="proof-sec">
+    <section class="pain">
       <div class="wrap">
-        <div class="proof-block reveal">
-          <p class="proof-block__quote">
-            "Zarabiam ponad 11 000 netto. Po audycie z Dnia 2 okazało się, że marnuję 1 600 zł miesięcznie na rzeczy, których nawet nie używam. W jeden wieczór zamknąłem 4 wycieki. Żałuję, że nie miałem tego 3 lata wcześniej."
-          </p>
-          <div class="proof-block__author">Mateusz K. — senior developer, Wrocław · zweryfikowany zakup</div>
-          <div class="proof-block__results">
-            <div class="proof-result">Audyt gotowy po 2 godzinach</div>
-            <div class="proof-result">1 600 zł/mc zatrzymanych od razu</div>
-            <div class="proof-result">Poduszka finansowa po 6 tygodniach</div>
-            <div class="proof-result">Wreszcie wiem gdzie idą moje pieniądze</div>
+        <p class="label">Czy to o Tobie?</p>
+        <h2 class="stitle">
+          Zarabiasz nieźle.<br />Ale jakoś nic nie zostaje.
+        </h2>
+        <div class="pain__list">
+          <div class="pain__item reveal">
+            <span class="pain__x">✕</span>
+            <p class="pain__text">
+              <strong
+                >Mieszkanie w kredycie. Auto w leasingu. Telefon na
+                raty.</strong
+              >
+              Masz wszystko — tylko to wszystko nie jest Twoje.
+            </p>
+          </div>
+          <div class="pain__item reveal">
+            <span class="pain__x">✕</span>
+            <p class="pain__text">
+              <strong>Gdybyś stracił pracę dziś</strong> — za 3 miesiące nie
+              miałbyś z czego spłacić kredytu. To nie jest normalne.
+            </p>
+          </div>
+          <div class="pain__item reveal">
+            <span class="pain__x">✕</span>
+            <p class="pain__text">
+              <strong>Zarabiasz więcej niż rok temu.</strong> Ale masz mniej.
+              Inflacja i wyższy próg podatkowy wyżerają każdą podwyżkę.
+            </p>
+          </div>
+          <div class="pain__item reveal">
+            <span class="pain__x">✕</span>
+            <p class="pain__text">
+              <strong>Wiesz, że powinieneś oszczędzać.</strong> Ale każdy
+              miesiąc kończy się na zero — albo na minusie.
+            </p>
+          </div>
+          <div class="pain__item reveal">
+            <span class="pain__x">✕</span>
+            <p class="pain__text">
+              <strong>Jesteś zmęczony</strong> pracowaniem coraz ciężej, żeby
+              stać w miejscu. Coś jest nie tak, ale nie wiesz co zmienić.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pain">
+    <section class="proof-sec">
       <div class="wrap">
-        <p class="label">Czy to o Tobie?</p>
-        <h2 class="stitle">Zarabiasz nieźle.<br />Ale jakoś nic nie zostaje.</h2>
-        <div class="pain__list">
-          <div class="pain__item reveal">
-            <span class="pain__x">✕</span>
-            <p class="pain__text"><strong>Mieszkanie w kredycie. Auto w leasingu. Telefon na raty.</strong> Masz wszystko — tylko to wszystko nie jest Twoje.</p>
+        <div class="proof-block reveal">
+          <p class="proof-block__quote">
+            "Zarabiam ponad 11 000 netto. Po audycie z Dnia 2 okazało się, że
+            marnuję 1 600 zł miesięcznie na rzeczy, których nawet nie używam. W
+            jeden wieczór zamknąłem 4 wycieki. Żałuję, że nie miałem tego 3 lata
+            wcześniej."
+          </p>
+          <div class="proof-block__author">
+            Mateusz K. — senior developer, Wrocław · zweryfikowany zakup
           </div>
-          <div class="pain__item reveal">
-            <span class="pain__x">✕</span>
-            <p class="pain__text"><strong>Gdybyś stracił pracę dziś</strong> — za 3 miesiące nie miałbyś z czego spłacić kredytu. To nie jest normalne.</p>
-          </div>
-          <div class="pain__item reveal">
-            <span class="pain__x">✕</span>
-            <p class="pain__text"><strong>Zarabiasz więcej niż rok temu.</strong> Ale masz mniej. Inflacja i wyższy próg podatkowy wyżerają każdą podwyżkę.</p>
-          </div>
-          <div class="pain__item reveal">
-            <span class="pain__x">✕</span>
-            <p class="pain__text"><strong>Wiesz, że powinieneś oszczędzać.</strong> Ale każdy miesiąc kończy się na zero — albo na minusie.</p>
-          </div>
-          <div class="pain__item reveal">
-            <span class="pain__x">✕</span>
-            <p class="pain__text"><strong>Jesteś zmęczony</strong> pracowaniem coraz ciężej, żeby stać w miejscu. Coś jest nie tak, ale nie wiesz co zmienić.</p>
+          <div class="proof-block__results">
+            <div class="proof-result">Audyt gotowy po 2 godzinach</div>
+            <div class="proof-result">1 600 zł/mc zatrzymanych od razu</div>
+            <div class="proof-result">Poduszka finansowa po 6 tygodniach</div>
+            <div class="proof-result">
+              Wreszcie wiem gdzie idą moje pieniądze
+            </div>
           </div>
         </div>
       </div>
@@ -1676,29 +2977,44 @@
 
     <section class="anim-break" data-slot="break">
       <div class="anim-zone--break">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 280"
+          preserveAspectRatio="xMidYMid slice"
+          width="100%"
+          height="100%"
+          aria-hidden="true">
           <defs>
-            <filter id="rs2-f-halo" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="20"/>
+            <filter
+              id="rs2-f-halo"
+              x="-50%"
+              y="-50%"
+              width="200%"
+              height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
             </filter>
           </defs>
-          <line class="rs2-ch" x1="0" y1="140" x2="1440" y2="140"/>
-          <line class="rs2-ch" x1="720" y1="0" x2="720" y2="280"/>
-          <line class="rs2-diag" x1="580" y1="0" x2="860" y2="280"/>
-          <line class="rs2-diag" x1="860" y1="0" x2="580" y2="280"/>
-          <circle class="rs2-halo" cx="720" cy="140"/>
-          <circle class="rs2-ring rs2-r1" cx="720" cy="140" r="6"/>
-          <circle class="rs2-ring rs2-r2" cx="720" cy="140" r="6"/>
-          <circle class="rs2-ring rs2-r3" cx="720" cy="140" r="6"/>
-          <circle class="rs2-ring rs2-r4" cx="720" cy="140" r="6"/>
-          <circle class="rs2-ring--red rs2-r5" cx="720" cy="140" r="6"/>
-          <circle class="rs2-ring rs2-r6" cx="720" cy="140" r="6"/>
-          <circle class="rs2-ring rs2-r7" cx="720" cy="140" r="6"/>
-          <circle class="rs2-ring rs2-r8" cx="720" cy="140" r="6"/>
+          <line class="rs2-ch" x1="0" y1="140" x2="1440" y2="140" />
+          <line class="rs2-ch" x1="720" y1="0" x2="720" y2="280" />
+          <line class="rs2-diag" x1="580" y1="0" x2="860" y2="280" />
+          <line class="rs2-diag" x1="860" y1="0" x2="580" y2="280" />
+          <circle class="rs2-halo" cx="720" cy="140" />
+          <circle class="rs2-ring rs2-r1" cx="720" cy="140" r="6" />
+          <circle class="rs2-ring rs2-r2" cx="720" cy="140" r="6" />
+          <circle class="rs2-ring rs2-r3" cx="720" cy="140" r="6" />
+          <circle class="rs2-ring rs2-r4" cx="720" cy="140" r="6" />
+          <circle class="rs2-ring--red rs2-r5" cx="720" cy="140" r="6" />
+          <circle class="rs2-ring rs2-r6" cx="720" cy="140" r="6" />
+          <circle class="rs2-ring rs2-r7" cx="720" cy="140" r="6" />
+          <circle class="rs2-ring rs2-r8" cx="720" cy="140" r="6" />
         </svg>
         <div class="break-statement">
-          <div class="break-statement__main">To nie jest <em>Twoja&nbsp;wina.</em></div>
-          <span class="break-statement__sub">— ale wyjście jest twoją odpowiedzialnością —</span>
+          <div class="break-statement__main">
+            To nie jest <em>Twoja&nbsp;wina.</em>
+          </div>
+          <span class="break-statement__sub"
+            >— ale wyjście jest twoją odpowiedzialnością —</span
+          >
         </div>
       </div>
     </section>
@@ -1709,12 +3025,22 @@
         <h2 class="stitle">To nie jest teoria<br />o pasywnym dochodzie.</h2>
         <div class="about__grid">
           <blockquote class="about__quote reveal">
-            "To nie jest Twoja wina. Ale wyjście z tego jest już Twoją odpowiedzialnością."
+            "To nie jest Twoja wina. Ale wyjście z tego jest już Twoją
+            odpowiedzialnością."
           </blockquote>
           <div class="about__body reveal">
-            <p>System podatkowy karze za ambicję. Banki żyją z Twoich rat. Inflacja pożera każdą podwyżkę.</p>
-            <p>Tego <strong>nie zmienisz.</strong> Ale możesz zmienić to, co dzieje się z Twoimi pieniędzmi każdego miesiąca.</p>
-            <p><strong>RESET</strong> to konkretny 14-dniowy plan — dla kogoś kto zarabia przyzwoicie, ale utknął w pułapce bez wyjścia.</p>
+            <p>
+              System podatkowy karze za ambicję. Banki żyją z Twoich rat.
+              Inflacja pożera każdą podwyżkę.
+            </p>
+            <p>
+              Tego <strong>nie zmienisz.</strong> Ale możesz zmienić to, co
+              dzieje się z Twoimi pieniędzmi każdego miesiąca.
+            </p>
+            <p>
+              <strong>RESET</strong> to konkretny 14-dniowy plan — dla kogoś kto
+              zarabia przyzwoicie, ale utknął w pułapce bez wyjścia.
+            </p>
           </div>
         </div>
       </div>
@@ -1765,41 +3091,149 @@
         <h2 class="stitle">Każdy dzień.<br />Jedno zadanie.</h2>
 
         <div class="plan-viz reveal" data-slot="plan">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810 200" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
-            <rect class="rs3-bg" width="810" height="200"/>
-            <line class="rs3-sep-h" x1="0" y1="26" x2="810" y2="26"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 810 200"
+            preserveAspectRatio="xMidYMid meet"
+            width="100%"
+            height="100%"
+            aria-hidden="true">
+            <rect class="rs3-bg" width="810" height="200" />
+            <line class="rs3-sep-h" x1="0" y1="26" x2="810" y2="26" />
             <text class="rs3-slot-id" x="14" y="17">ANIM · 03</text>
-            <rect x="190" y="10" width="6" height="6" rx="1" fill="#FF3D1A"/>
+            <rect x="190" y="10" width="6" height="6" rx="1" fill="#FF3D1A" />
             <text class="rs3-legend-lbl" x="200" y="17">DZ.01–03 · AUDYT</text>
-            <rect x="330" y="10" width="6" height="6" rx="1" fill="#FF7A00"/>
-            <text class="rs3-legend-lbl" x="340" y="17">DZ.04–07 · OPTYMALIZACJA</text>
-            <rect x="524" y="10" width="6" height="6" rx="1" fill="#C9A84C"/>
-            <text class="rs3-legend-lbl" x="534" y="17">DZ.08–11 · PODUSZKA</text>
-            <rect x="678" y="10" width="6" height="6" rx="1" fill="#4ade80"/>
+            <rect x="330" y="10" width="6" height="6" rx="1" fill="#FF7A00" />
+            <text class="rs3-legend-lbl" x="340" y="17">
+              DZ.04–07 · OPTYMALIZACJA
+            </text>
+            <rect x="524" y="10" width="6" height="6" rx="1" fill="#C9A84C" />
+            <text class="rs3-legend-lbl" x="534" y="17">
+              DZ.08–11 · PODUSZKA
+            </text>
+            <rect x="678" y="10" width="6" height="6" rx="1" fill="#4ade80" />
             <text class="rs3-legend-lbl" x="688" y="17">DZ.12–14 · SYSTEM</text>
-            <line class="rs3-grid" x1="14" y1="65" x2="796" y2="65"/>
-            <line class="rs3-grid" x1="14" y1="97" x2="796" y2="97"/>
-            <line class="rs3-grid" x1="14" y1="130" x2="796" y2="130"/>
-            <line class="rs3-sep-v" x1="181" y1="32" x2="181" y2="162"/>
-            <line class="rs3-sep-v" x1="409" y1="32" x2="409" y2="162"/>
-            <line class="rs3-sep-v" x1="637" y1="32" x2="637" y2="162"/>
-            <line class="rs3-baseline" x1="14" y1="162" x2="796" y2="162"/>
-            <rect class="rs3-bar rs3-b00" x="26"  y="142" width="26" height="20"  fill="#FF3D1A" rx="1"/>
-            <rect class="rs3-bar rs3-b01" x="83"  y="130" width="26" height="32"  fill="#FF3D1A" rx="1"/>
-            <rect class="rs3-bar rs3-b02" x="140" y="116" width="26" height="46"  fill="#FF3D1A" rx="1"/>
-            <rect class="rs3-bar rs3-b03" x="197" y="107" width="26" height="55"  fill="#FF7A00" rx="1"/>
-            <rect class="rs3-bar rs3-b04" x="254" y="97"  width="26" height="65"  fill="#FF7A00" rx="1"/>
-            <rect class="rs3-bar rs3-b05" x="311" y="87"  width="26" height="75"  fill="#FF7A00" rx="1"/>
-            <rect class="rs3-bar rs3-b06" x="368" y="75"  width="26" height="87"  fill="#FF7A00" rx="1"/>
-            <rect class="rs3-bar rs3-b07" x="425" y="70"  width="26" height="92"  fill="#C9A84C" rx="1"/>
-            <rect class="rs3-bar rs3-b08" x="482" y="64"  width="26" height="98"  fill="#C9A84C" rx="1"/>
-            <rect class="rs3-bar rs3-b09" x="539" y="58"  width="26" height="104" fill="#C9A84C" rx="1"/>
-            <rect class="rs3-bar rs3-b10" x="596" y="51"  width="26" height="111" fill="#C9A84C" rx="1"/>
-            <rect class="rs3-bar rs3-b11" x="653" y="45"  width="26" height="117" fill="#4ade80" rx="1"/>
-            <rect class="rs3-bar rs3-b12" x="710" y="39"  width="26" height="123" fill="#4ade80" rx="1"/>
-            <rect class="rs3-bar rs3-b13" x="767" y="32"  width="26" height="130" fill="#4ade80" rx="1"/>
-            <text class="rs3-day-num" x="39"  y="175">01</text>
-            <text class="rs3-day-num" x="96"  y="175">02</text>
+            <line class="rs3-grid" x1="14" y1="65" x2="796" y2="65" />
+            <line class="rs3-grid" x1="14" y1="97" x2="796" y2="97" />
+            <line class="rs3-grid" x1="14" y1="130" x2="796" y2="130" />
+            <line class="rs3-sep-v" x1="181" y1="32" x2="181" y2="162" />
+            <line class="rs3-sep-v" x1="409" y1="32" x2="409" y2="162" />
+            <line class="rs3-sep-v" x1="637" y1="32" x2="637" y2="162" />
+            <line class="rs3-baseline" x1="14" y1="162" x2="796" y2="162" />
+            <rect
+              class="rs3-bar rs3-b00"
+              x="26"
+              y="142"
+              width="26"
+              height="20"
+              fill="#FF3D1A"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b01"
+              x="83"
+              y="130"
+              width="26"
+              height="32"
+              fill="#FF3D1A"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b02"
+              x="140"
+              y="116"
+              width="26"
+              height="46"
+              fill="#FF3D1A"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b03"
+              x="197"
+              y="107"
+              width="26"
+              height="55"
+              fill="#FF7A00"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b04"
+              x="254"
+              y="97"
+              width="26"
+              height="65"
+              fill="#FF7A00"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b05"
+              x="311"
+              y="87"
+              width="26"
+              height="75"
+              fill="#FF7A00"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b06"
+              x="368"
+              y="75"
+              width="26"
+              height="87"
+              fill="#FF7A00"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b07"
+              x="425"
+              y="70"
+              width="26"
+              height="92"
+              fill="#C9A84C"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b08"
+              x="482"
+              y="64"
+              width="26"
+              height="98"
+              fill="#C9A84C"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b09"
+              x="539"
+              y="58"
+              width="26"
+              height="104"
+              fill="#C9A84C"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b10"
+              x="596"
+              y="51"
+              width="26"
+              height="111"
+              fill="#C9A84C"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b11"
+              x="653"
+              y="45"
+              width="26"
+              height="117"
+              fill="#4ade80"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b12"
+              x="710"
+              y="39"
+              width="26"
+              height="123"
+              fill="#4ade80"
+              rx="1" />
+            <rect
+              class="rs3-bar rs3-b13"
+              x="767"
+              y="32"
+              width="26"
+              height="130"
+              fill="#4ade80"
+              rx="1" />
+            <text class="rs3-day-num" x="39" y="175">01</text>
+            <text class="rs3-day-num" x="96" y="175">02</text>
             <text class="rs3-day-num" x="153" y="175">03</text>
             <text class="rs3-day-num" x="210" y="175">04</text>
             <text class="rs3-day-num" x="267" y="175">05</text>
@@ -1812,7 +3246,7 @@
             <text class="rs3-day-num" x="666" y="175">12</text>
             <text class="rs3-day-num" x="723" y="175">13</text>
             <text class="rs3-day-num" x="780" y="175">14</text>
-            <text class="rs3-pl rs3-pl1" x="97"  y="191">AUDYT</text>
+            <text class="rs3-pl rs3-pl1" x="97" y="191">AUDYT</text>
             <text class="rs3-pl rs3-pl2" x="293" y="191">OPTYMALIZACJA</text>
             <text class="rs3-pl rs3-pl3" x="523" y="191">PODUSZKA</text>
             <text class="rs3-pl rs3-pl4" x="723" y="191">SYSTEM</text>
@@ -1820,44 +3254,60 @@
         </div>
 
         <div class="days">
-          <div class="day-row reveal">
+          <div class="day-row reveal" data-phase="1">
             <div class="day-row__label">
+              <span class="day-row__num-phase"></span>
               <span class="day-row__num">1–3</span>
               <span class="day-row__span">Audyt</span>
             </div>
             <div class="day-row__body">
               <h4 class="day-row__title">Mapujesz wszystkie wydatki</h4>
-              <p class="day-row__desc">Stałe zobowiązania, wycieki zmienne, bilans netto. Większość ludzi jest zaskoczona tym co zobaczy.</p>
+              <p class="day-row__desc">
+                Stałe zobowiązania, wycieki zmienne, bilans netto. Większość
+                ludzi jest zaskoczona tym co zobaczy.
+              </p>
             </div>
           </div>
-          <div class="day-row reveal">
+          <div class="day-row reveal" data-phase="2">
             <div class="day-row__label">
+              <span class="day-row__num-phase"></span>
               <span class="day-row__num">4–7</span>
               <span class="day-row__span">Optymalizacja</span>
             </div>
             <div class="day-row__body">
               <h4 class="day-row__title">Zamykasz wycieki bez bólu</h4>
-              <p class="day-row__desc">Martwe subskrypcje, przepłacane rachunki, limity na największe kategorie. Bez drastycznych wyrzeczeń.</p>
+              <p class="day-row__desc">
+                Martwe subskrypcje, przepłacane rachunki, limity na największe
+                kategorie. Bez drastycznych wyrzeczeń.
+              </p>
             </div>
           </div>
-          <div class="day-row reveal">
+          <div class="day-row reveal" data-phase="3">
             <div class="day-row__label">
+              <span class="day-row__num-phase"></span>
               <span class="day-row__num">8–11</span>
               <span class="day-row__span">Poduszka</span>
             </div>
             <div class="day-row__body">
               <h4 class="day-row__title">Budujesz fundament bezpieczeństwa</h4>
-              <p class="day-row__desc">Gdzie trzymać kasę, jak odkładać automatycznie, strategia spłaty długów. Cel: 1 miesiąc spokoju.</p>
+              <p class="day-row__desc">
+                Gdzie trzymać kasę, jak odkładać automatycznie, strategia spłaty
+                długów. Cel: 1 miesiąc spokoju.
+              </p>
             </div>
           </div>
-          <div class="day-row reveal">
+          <div class="day-row reveal" data-phase="4">
             <div class="day-row__label">
+              <span class="day-row__num-phase"></span>
               <span class="day-row__num">12–14</span>
               <span class="day-row__span">System</span>
             </div>
             <div class="day-row__body">
               <h4 class="day-row__title">Automatyzujesz dobre decyzje</h4>
-              <p class="day-row__desc">Przelewy cykliczne, budżet miesięczny, rytm finansowy który działa bez Twojej uwagi co miesiąc.</p>
+              <p class="day-row__desc">
+                Przelewy cykliczne, budżet miesięczny, rytm finansowy który
+                działa bez Twojej uwagi co miesiąc.
+              </p>
             </div>
           </div>
         </div>
@@ -1870,19 +3320,35 @@
         <h2 class="stitle">Wreszcie ktoś powiedział wprost.</h2>
         <div class="testi-grid">
           <div class="testi reveal">
-            <p class="testi__text">"Wiedziałem że coś jest nie tak, ale nie umiałem tego nazwać. Po audycie okazało się, że marnuję 1 400 zł miesięcznie na rzeczy, których w ogóle nie używam."</p>
-            <span class="testi__author">Mateusz K. — developer, Wrocław</span>
-            <div class="testi__result">↑ 1 400 zł/mc z powrotem w kieszeni</div>
+            <p class="testi__text">
+              "Myślałem, że problem to za małe zarobki. Po Dniu 1 zobaczyłem, że
+              problem to brak systemu. 13 subskrypcji, w tym 4 zapomniane od
+              ponad roku. Ebook się zwrócił w 30 minut."
+            </p>
+            <span class="testi__author">Tomasz W. — sales manager, Poznań</span>
+            <div class="testi__result">
+              ↑ 870 zł/mc odzyskane w jeden weekend
+            </div>
           </div>
           <div class="testi reveal">
-            <p class="testi__text">"Zarabiam 12k netto i zawsze mi nie starcza. Po 6 tygodniach mam pierwszą realną poduszkę finansową od 5 lat. Dosłownie od pierwszego do pierwszego — przez 5 lat."</p>
+            <p class="testi__text">
+              "Zarabiam 12k netto i zawsze mi nie starcza. Po 6 tygodniach mam
+              pierwszą realną poduszkę finansową od 5 lat. Dosłownie od
+              pierwszego do pierwszego — przez 5 lat."
+            </p>
             <span class="testi__author">Agnieszka P. — manager, Warszawa</span>
             <div class="testi__result">↑ Pierwsza poduszka po 6 tygodniach</div>
           </div>
           <div class="testi reveal">
-            <p class="testi__text">"Żaden kurs za 2 000 zł nie dał mi tyle gotowych kroków. Zrobiłem audyt w piątek wieczór i w sobotę anulowałem 6 subskrypcji, o których zapomniałem."</p>
+            <p class="testi__text">
+              "Żaden kurs za 2 000 zł nie dał mi tyle gotowych kroków. Zrobiłem
+              audyt w piątek wieczór i w sobotę anulowałem 6 subskrypcji, o
+              których zapomniałem."
+            </p>
             <span class="testi__author">Piotr R. — inżynier, Kraków</span>
-            <div class="testi__result">↑ 6 subskrypcji anulowanych w weekend</div>
+            <div class="testi__result">
+              ↑ 6 subskrypcji anulowanych w weekend
+            </div>
           </div>
         </div>
       </div>
@@ -1893,11 +3359,13 @@
         <p class="label">Gwarancja</p>
         <h2 class="stitle">Ryzyko jest<br />po mojej stronie.</h2>
         <div class="guarantee__box reveal">
-          <h3 class="guarantee__title">14-dniowa bezwarunkowa gwarancja zwrotu</h3>
+          <h3 class="guarantee__title">
+            14-dniowa bezwarunkowa gwarancja zwrotu
+          </h3>
           <div class="guarantee__steps">
             <div class="guarantee__step">
               <span class="guarantee__step-n">1</span>
-              <div class="guarantee__step-t">Pobierz i przeczytaj Część 1 i 2</div>
+              <div class="guarantee__step-t">Pobierz i przeczytaj</div>
             </div>
             <div class="guarantee__step">
               <span class="guarantee__step-n">2</span>
@@ -1909,9 +3377,13 @@
             </div>
           </div>
           <p class="guarantee__body">
-            Jeśli uznasz, że RESET nie jest wart 49 złotych — napisz maila. Zwracam całą kwotę bez pytań, bez formularzy, bez tłumaczenia się. Chcę żebyś czuł się w 100% bezpiecznie testując ten plan.
+            Jeśli uznasz, że RESET nie jest wart 49 złotych — napisz maila.
+            Zwracam całą kwotę bez pytań, bez formularzy, bez tłumaczenia się.
+            Chcę żebyś czuł się w 100% bezpiecznie testując ten plan.
           </p>
-          <div class="guarantee__footer">Gwarancja zwrotu przez 14 dni od zakupu</div>
+          <div class="guarantee__footer">
+            Gwarancja zwrotu przez 14 dni od zakupu
+          </div>
         </div>
       </div>
     </section>
@@ -1921,20 +3393,30 @@
 
       <div class="wrap">
         <h2 class="final__title">Gotowy<br />na reset?</h2>
-        <p class="final__sub">PDF. Pobierasz natychmiast. Zaczynasz dziś. 14 dni.</p>
+        <p class="final__sub">
+          PDF. Pobierasz natychmiast. Zaczynasz dziś. 14 dni.
+        </p>
         <div class="final__price-row">
           <span class="final__now">49 PLN</span>
           <span class="final__old">79 PLN</span>
         </div>
         <div class="final__urgency">
           <span class="urgency__dot"></span>
-          Zostało 11 kopii w cenie promocyjnej
+          Cena promocyjna do końca tygodnia
         </div>
-        <a href="#" onclick="openPopup(); return false;" class="btn btn--full btn--pulse" style="max-width: 420px; margin: 0 auto; display: flex;">
+        <a
+          href="#"
+          onclick="
+            openPopup();
+            return false;
+          "
+          class="btn btn--full btn--pulse"
+          style="max-width: 420px; margin: 0 auto; display: flex">
           Pobierz RESET — 49 PLN →
         </a>
         <div class="final__badges" style="margin-top: 14px">
-          🔒 Bezpieczna płatność &nbsp;·&nbsp; PDF na maila od razu &nbsp;·&nbsp; 14 dni gwarancji
+          🔒 Bezpieczna płatność &nbsp;·&nbsp; PDF na maila od razu
+          &nbsp;·&nbsp; 14 dni gwarancji
         </div>
       </div>
     </section>
@@ -1945,24 +3427,93 @@
         <h2 class="stitle">Masz pytania.</h2>
         <div class="faq__list">
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">Dla kogo jest ten ebook?<span class="faq__plus">+</span></button>
-            <div class="faq__a"><div class="faq__a-in">Dla kogoś kto zarabia między 5 a 15k netto, ma kredyt lub leasing, i czuje że mimo przyzwoitych zarobków nie buduje żadnego majątku. Nie musisz mieć żadnej wiedzy finansowej — wszystko wytłumaczone od podstaw.</div></div>
+            <button
+              class="faq__q"
+              onclick="toggleFaq(this)"
+              aria-expanded="false">
+              Dla kogo jest ten ebook?<span class="faq__plus" aria-hidden="true"
+                >+</span
+              >
+            </button>
+            <div class="faq__a">
+              <div class="faq__a-in">
+                Dla kogoś kto zarabia między 5 a 15k netto, ma kredyt lub
+                leasing, i czuje że mimo przyzwoitych zarobków nie buduje
+                żadnego majątku. Nie musisz mieć żadnej wiedzy finansowej —
+                wszystko wytłumaczone od podstaw.
+              </div>
+            </div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">Czy to kolejna książka o pasywnym dochodzie?<span class="faq__plus">+</span></button>
-            <div class="faq__a"><div class="faq__a-in">Nie. Zero kryptowalut, dropshippingu ani "wolności finansowej". Konkretny plan na 2 tygodnie, zbudowany pod polskie realia podatkowe i koszty życia w 2026 roku.</div></div>
+            <button
+              class="faq__q"
+              onclick="toggleFaq(this)"
+              aria-expanded="false">
+              Czy to kolejna książka o pasywnym dochodzie?<span
+                class="faq__plus"
+                aria-hidden="true"
+                >+</span
+              >
+            </button>
+            <div class="faq__a">
+              <div class="faq__a-in">
+                Nie. Zero kryptowalut, dropshippingu ani "wolności finansowej".
+                Konkretny plan na 2 tygodnie, zbudowany pod polskie realia
+                podatkowe i koszty życia w 2026 roku.
+              </div>
+            </div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">Ile czasu zajmuje plan?<span class="faq__plus">+</span></button>
-            <div class="faq__a"><div class="faq__a-in">Ebook przeczytasz w 2–3 godziny. Każde zadanie z planu zajmuje 20–40 minut dziennie. Wystarczy jeden wieczór po pracy.</div></div>
+            <button
+              class="faq__q"
+              onclick="toggleFaq(this)"
+              aria-expanded="false">
+              Ile czasu zajmuje plan?<span class="faq__plus" aria-hidden="true"
+                >+</span
+              >
+            </button>
+            <div class="faq__a">
+              <div class="faq__a-in">
+                Ebook przeczytasz w 2–3 godziny. Każde zadanie z planu zajmuje
+                20–40 minut dziennie. Wystarczy jeden wieczór po pracy.
+              </div>
+            </div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">Co jeśli będę niezadowolony?<span class="faq__plus">+</span></button>
-            <div class="faq__a"><div class="faq__a-in">14 dni na zwrot bez pytań. Piszesz maila — oddaję kasę. Bez formularzy, bez tłumaczenia się.</div></div>
+            <button
+              class="faq__q"
+              onclick="toggleFaq(this)"
+              aria-expanded="false">
+              Co jeśli będę niezadowolony?<span
+                class="faq__plus"
+                aria-hidden="true"
+                >+</span
+              >
+            </button>
+            <div class="faq__a">
+              <div class="faq__a-in">
+                14 dni na zwrot bez pytań. Piszesz maila — oddaję kasę. Bez
+                formularzy, bez tłumaczenia się.
+              </div>
+            </div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" onclick="toggleFaq(this)">Jak dostanę ebooka po zakupie?<span class="faq__plus">+</span></button>
-            <div class="faq__a"><div class="faq__a-in">Natychmiast po płatności dostajesz maila z linkiem do pobrania PDF. Dostęp w ciągu 2 minut — bez czekania.</div></div>
+            <button
+              class="faq__q"
+              onclick="toggleFaq(this)"
+              aria-expanded="false">
+              Jak dostanę ebooka po zakupie?<span
+                class="faq__plus"
+                aria-hidden="true"
+                >+</span
+              >
+            </button>
+            <div class="faq__a">
+              <div class="faq__a-in">
+                Natychmiast po płatności dostajesz maila z linkiem do pobrania
+                PDF. Dostęp w ciągu 2 minut — bez czekania.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1971,42 +3522,88 @@
     <footer>
       <div class="wrap-w">
         <div class="footer__in">
-          <span class="footer__copy">© 2026 RESET · Wszelkie prawa zastrzeżone</span>
-          <span class="footer__copy">reset14@int.pl</span>
+          <span class="footer__copy"
+            >© 2026 RESET · Wszelkie prawa zastrzeżone</span
+          >
+          <nav class="footer__nav" aria-label="Stopka">
+            <a href="/regulamin" class="footer__link">Regulamin</a>
+            <a href="/polityka-prywatnosci" class="footer__link"
+              >Polityka prywatności</a
+            >
+            <a href="mailto:reset14@int.pl" class="footer__link"
+              >reset14@int.pl</a
+            >
+          </nav>
         </div>
       </div>
     </footer>
 
-    <div class="overlay" id="overlay" onclick="if (event.target === this) closePopup();">
-      <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-        <button class="popup__close" onclick="closePopup()" aria-label="Zamknij">✕</button>
+    <div
+      class="overlay"
+      id="overlay"
+      onclick="if (event.target === this) closePopup();">
+      <div
+        class="popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popup-title">
+        <button
+          class="popup__close"
+          onclick="closePopup()"
+          aria-label="Zamknij">
+          ✕
+        </button>
         <span class="popup__tag">Świetna decyzja.</span>
-        <h3 class="popup__title" id="popup-title">Chcesz wdrożyć plan jeszcze szybciej?</h3>
+        <h3 class="popup__title" id="popup-title">
+          Chcesz wdrożyć plan jeszcze szybciej?
+        </h3>
         <div class="popup__rule"></div>
-        <p class="popup__sub">Większość ludzi przeczyta ebooka, ale zapomni go wdrożyć. Dlatego przygotowałem gotowy <strong style="color: var(--text)">arkusz Excel do budżetu</strong> — wypełniasz dane, on liczy sam.</p>
+        <p class="popup__sub">
+          Większość ludzi przeczyta ebooka, ale zapomni go wdrożyć. Dlatego
+          przygotowałem gotowy
+          <strong style="color: var(--text)">arkusz Excel do budżetu</strong> —
+          wypełniasz dane, on liczy sam.
+        </p>
         <div class="popup__benefits">
-          <div class="popup__benefit">Tabela audytu z Dnia 1 i 2 — gotowa do wypełnienia</div>
-          <div class="popup__benefit">Automatyczny kalkulator poduszki finansowej</div>
-          <div class="popup__benefit">Tracker budżetu miesięcznego z wykresami</div>
-          <div class="popup__benefit">Plan spłaty długów — metoda lawinowa i śnieżna kula</div>
+          <div class="popup__benefit">
+            Tabela audytu z Dnia 1 i 2 — gotowa do wypełnienia
+          </div>
+          <div class="popup__benefit">
+            Automatyczny kalkulator poduszki finansowej
+          </div>
+          <div class="popup__benefit">
+            Tracker budżetu miesięcznego z wykresami
+          </div>
+          <div class="popup__benefit">
+            Plan spłaty długów — metoda lawinowa i śnieżna kula
+          </div>
         </div>
-        <p class="popup__price">Normalnie 29 PLN — dziś tylko 19 PLN jako uzupełnienie do RESET.</p>
-        <button class="popup__yes" onclick="acceptUpsell()">TAK — DODAJ ARKUSZ ZA 19 PLN</button>
-        <button class="popup__no" onclick="declineUpsell()">Nie, sam sobie poradzę z Excelem</button>
+        <p class="popup__price">
+          Normalnie 29 PLN — dziś tylko 19 PLN jako uzupełnienie do RESET.
+        </p>
+        <button class="popup__yes" onclick="acceptUpsell()">
+          TAK — DODAJ ARKUSZ ZA 19 PLN
+        </button>
+        <button class="popup__no" onclick="declineUpsell()">
+          Nie, sam sobie poradzę z Excelem
+        </button>
       </div>
     </div>
 
     <script>
-      var URL_EBOOK = "https://www.naffy.io/projekt-reset/reset-ebook-sam-pdf-uAS";
-      var URL_BUNDLE = "https://www.naffy.io/projekt-reset/reset-pakiet-ebook-excel-0HY";
+      var URL_EBOOK =
+        "https://www.naffy.io/projekt-reset/reset-ebook-sam-pdf-uAS";
+      var URL_BUNDLE =
+        "https://www.naffy.io/projekt-reset/reset-pakiet-ebook-excel-0HY";
 
       function openPopup() {
         document.getElementById("overlay").classList.add("open");
         document.body.style.overflow = "hidden";
-        if (typeof fbq !== "undefined") fbq("track", "InitiateCheckout", {
-          value: 49,
-          currency: "PLN"
-        });
+        if (typeof fbq !== "undefined")
+          fbq("track", "InitiateCheckout", {
+            value: 49,
+            currency: "PLN",
+          });
       }
       function closePopup() {
         document.getElementById("overlay").classList.remove("open");
@@ -2014,12 +3611,14 @@
       }
       function acceptUpsell() {
         closePopup();
-        if (typeof fbq !== "undefined") fbq("track", "AddToCart", { value: 68, currency: "PLN" });
+        if (typeof fbq !== "undefined")
+          fbq("track", "AddToCart", { value: 68, currency: "PLN" });
         window.location.href = URL_BUNDLE;
       }
       function declineUpsell() {
         closePopup();
-        if (typeof fbq !== "undefined") fbq("track", "AddToCart", { value: 49, currency: "PLN" });
+        if (typeof fbq !== "undefined")
+          fbq("track", "AddToCart", { value: 49, currency: "PLN" });
         window.location.href = URL_EBOOK;
       }
 
@@ -2027,22 +3626,63 @@
         var item = btn.parentElement;
         var ans = item.querySelector(".faq__a");
         var open = item.classList.contains("open");
+
         document.querySelectorAll(".faq__item.open").forEach(function (el) {
           el.classList.remove("open");
+          var b = el.querySelector(".faq__q");
+          if (b) b.setAttribute("aria-expanded", "false");
           el.querySelector(".faq__a").style.maxHeight = null;
         });
+
         if (!open) {
           item.classList.add("open");
+          btn.setAttribute("aria-expanded", "true");
           ans.style.maxHeight = ans.scrollHeight + "px";
         }
       }
 
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) e.target.classList.add("in");
-        });
-      }, { threshold: 0.08, rootMargin: "0px 0px -32px 0px" });
-      document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) e.target.classList.add("in");
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -32px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach(function (el) {
+        io.observe(el);
+      });
+
+      var progressEl = document.getElementById("scrollProgress");
+      var topbar = document.getElementById("topbar");
+      var stickyCta = document.getElementById("stickyCta");
+      var heroSection = document.getElementById("hero-section");
+
+      function onScroll() {
+        var scrolled = window.scrollY;
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        if (total > 0 && progressEl) {
+          progressEl.style.width =
+            Math.min(100, (scrolled / total) * 100) + "%";
+        }
+        if (topbar) {
+          if (scrolled > 40) topbar.classList.add("scrolled");
+          else topbar.classList.remove("scrolled");
+        }
+        if (stickyCta && heroSection) {
+          var heroBottom = heroSection.getBoundingClientRect().bottom;
+          if (heroBottom < 0) {
+            stickyCta.classList.add("visible");
+            document.body.classList.add("sticky-active");
+          } else {
+            stickyCta.classList.remove("visible");
+            document.body.classList.remove("sticky-active");
+          }
+        }
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
 
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closePopup();
