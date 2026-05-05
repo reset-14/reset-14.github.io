@@ -32,38 +32,34 @@
       rel="stylesheet" />
 
     <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js",
-      );
-      fbq("init", "4483695461875526");
-      fbq("track", "PageView");
-      fbq("track", "ViewContent", {
-        content_name: "RESET Finansowy",
-        content_category: "ebook",
-        value: 49,
-        currency: "PLN",
-      });
-    </script>
+  !(function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = [];
+    t = b.createElement(e); t.async = !0; t.src = v;
+    s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+  })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+
+  // Generator unikalnego eventID
+  function genEventId(name) {
+    return name + '_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+  }
+
+  var _pvId = genEventId('pv');
+  var _vcId = genEventId('vc');
+
+  fbq("init", "4483695461875526");
+  fbq("track", "PageView",    {}, { eventID: _pvId });
+  fbq("track", "ViewContent", {
+    content_name: "RESET Finansowy",
+    content_category: "ebook",
+    value: 49,
+    currency: "PLN"
+  }, { eventID: _vcId });
+</script>
     <noscript>
       <img
         height="1"
@@ -3593,30 +3589,30 @@
         "https://www.naffy.io/projekt-reset/reset-pakiet-ebook-excel-0HY";
 
       function openPopup() {
-        document.getElementById("overlay").classList.add("open");
-        document.body.style.overflow = "hidden";
-        if (typeof fbq !== "undefined")
-          fbq("track", "InitiateCheckout", {
-            value: 49,
-            currency: "PLN",
-          });
-      }
+  document.getElementById("overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+  if (typeof fbq !== "undefined")
+    fbq("track", "InitiateCheckout", { value: 49, currency: "PLN" },
+        { eventID: genEventId('ic') });
+}
       function closePopup() {
         document.getElementById("overlay").classList.remove("open");
         document.body.style.overflow = "";
       }
       function acceptUpsell() {
-        closePopup();
-        if (typeof fbq !== "undefined")
-          fbq("track", "AddToCart", { value: 68, currency: "PLN" });
-        window.location.href = URL_BUNDLE;
-      }
+  closePopup();
+  if (typeof fbq !== "undefined")
+    fbq("track", "AddToCart", { value: 68, currency: "PLN" },
+        { eventID: genEventId('atc') });
+  window.location.href = URL_BUNDLE;
+}
       function declineUpsell() {
-        closePopup();
-        if (typeof fbq !== "undefined")
-          fbq("track", "AddToCart", { value: 49, currency: "PLN" });
-        window.location.href = URL_EBOOK;
-      }
+  closePopup();
+  if (typeof fbq !== "undefined")
+    fbq("track", "AddToCart", { value: 49, currency: "PLN" },
+        { eventID: genEventId('atc') });
+  window.location.href = URL_EBOOK;
+}
 
       function toggleFaq(btn) {
         var item = btn.parentElement;
